@@ -3,18 +3,16 @@ import { delegate } from '../tools.js';
 import { data } from '../data.js';
 
 class LookupTable {
-    constructor(el, options = {
-        data: data.cashflowAnalysis,
-        title: 'Cashflow-Analyse',
-    }) {
-        const data = options.data;
-        const dependencies = Array.from(new Set(data.flatMap(d => d.dependencies))).sort();
+    constructor(el, data = data.cashflowAnalysis) {
+        const items = data.items;
+        const title = data.title;
+        const dependencies = Array.from(new Set(items.flatMap(d => d.dependencies))).sort();
 
         let header = dependencies.map((dRow, dKey) => `<th data-col="${dKey}">${dRow}</th>`).join('');
 
         let rows = dependencies.map((dRow, keyRow) => {
             const cells = dependencies.map((dCol, keyCol) => {
-                const possibleResults = data.filter(item => {
+                const possibleResults = items.filter(item => {
                     return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
                 }).map(item => {
                     return `<div class="result">${item.name}<div class="formula">${item.formula}</div></div>`;
@@ -28,7 +26,7 @@ class LookupTable {
         }).join('');
 
         let table = `
-            <h1>${options.title}</h1>
+            <h1>${title}</h1>
             <table style="--cols: ${dependencies.length + 1}">
                 <tr><th></th>${header}</tr>
                 ${rows}

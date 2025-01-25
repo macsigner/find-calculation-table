@@ -3,4 +3,4 @@ import { data } from './includes/data.js';
 
 import LookupTable from './includes/modules/LookupTable.js';
 
-new LookupTable(document.querySelector('#app'));
+document.querySelectorAll('[data-table]').forEach(el => new LookupTable(el, data[el.dataset.table]));
