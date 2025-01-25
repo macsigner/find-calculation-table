@@ -1,6 +1,6 @@
-import './style.scss'
-import { data } from './data.js';
-import { delegate } from './tools.js';
+import '../style.scss'
+import { data } from './includes/data.js';
+import { delegate } from './includes/tools.js';
 
 const dependencies = Array.from(new Set(data.cashflowAnalysis.flatMap(d => d.dependencies))).sort();
 
