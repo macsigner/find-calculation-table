@@ -1,6 +1,7 @@
 *,
 ::before,
 ::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: none;
@@ -16,13 +17,17 @@ html {
 }
 
 body {
-    font: 1.6rem/1.6 sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    font: 1.2rem/1.6 sans-serif;
 }
 
 main {
     width: calc(100% - 2 * var(--side-margin));
     margin-right: auto;
     margin-left: auto;
+    flex: 1 0 auto
 }
 
 main table {
@@ -31,7 +36,7 @@ main table {
 
 table {
     border-collapse: collapse;
-    table-layout: auto;
+    table-layout: fixed;
 }
 
 td,
@@ -39,11 +44,8 @@ th {
     padding: 10px;
     border: 1px solid currentcolor;
     hyphens: auto;
+    width: calc(100% / (var(--cols) + 1));
     min-width: 0;
-}
-
-th {
-    width: 100px;
 }
 
 td {
@@ -57,9 +59,16 @@ tr .result {
     position: relative;
     margin: 2px;
     padding: 2px 10px;
-    background-color: rgba(black, .1);
+    background-color: rgba(white, .3);
 }
 
+.main-footer {
+    padding: var(--side-margin);
+}
+
+.result {
+    hyphens: auto;
+}
 .result:hover {
     z-index: 10;
 }
@@ -85,7 +94,7 @@ td,
 th {
     &.active-row,
     &.active-col {
-        background-color: rgba(yellow, .5);
+        background-color: rgba(beige, 1);
     }
 }
 
@@ -94,5 +103,5 @@ th {
 }
 
 .active-col.active-row {
-    background-color: orange;
+    background-color: rgba(green, .7);
 }
