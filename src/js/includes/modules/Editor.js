@@ -19,7 +19,7 @@ class Editor {
         }));
 
         document.addEventListener('click', e => {
-            if(e.closest('#edit-area') === this.editArea) {
+            if(e.target.closest('.edit-area__inner') === this.inner) {
                 return;
             }
 

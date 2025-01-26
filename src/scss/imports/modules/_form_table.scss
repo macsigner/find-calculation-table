@@ -1,0 +1,19 @@
+/**
+ * form-table bem module
+ */
+
+.form-table {
+    &__add-data {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        > :not(button) {
+            flex: 0 0 100%;
+        }
+
+        > button {
+            margin-top: 2rem;
+        }
+    }
+}

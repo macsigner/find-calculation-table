@@ -2,10 +2,14 @@ import LookupTable from './LookupTable.js';
 import { data } from '../data.js';
 import { delegate } from '../tools.js';
 import Editor from './Editor.js';
+import DeleteEntry from './DeleteEntry.js';
+import AddEntry from './AddEntry.js';
 
 class App {
     constructor() {
         const el = document.querySelector('#app');
+        new DeleteEntry();
+        new AddEntry();
 
         const keys = [
             'cashflowAnalysis',
@@ -22,6 +26,10 @@ class App {
         }
 
         new Editor();
+
+        document.addEventListener('submit', e => {
+            e.preventDefault();
+        })
     }
 }
 

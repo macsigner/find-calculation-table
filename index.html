@@ -30,7 +30,7 @@
     </div>
 </footer>
 <template id="form-entry">
-    <form>
+    <form class="data-form">
         <label>
             Bezeichnung:
             <input type="text" name="name">
@@ -43,14 +43,21 @@
             Formel <em>(Nicht nötig aber zu Vollständigkeit)</em>
             <input type="text" name="formula">
         </label>
+        <div class="data-form__options">
+            <button class="button" data-delete-entry>Eintrag entfernen -</button>
+        </div>
     </form>
 </template>
-<template id="form-table">
+<template id="form-table" class="form-table">
     <form>
         <label>
             Titel:
             <input type="text" name="title">
         </label>
+        <div class="form-table__add-data">
+            <button class="button" data-add-entry>Daten hinzufügen +</button>
+        </div>
+        <hr>
         <button class="button">Speichern</button>
     </form>
 </template>
