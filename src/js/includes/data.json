@@ -1,0 +1,420 @@
+[
+  {
+    "title": "Cashflow-Analyse",
+    "items": [
+      {
+        "name": "Cashflow-Marge",
+        "dependencies": [
+          "Cashflow",
+          "Umsatz"
+        ],
+        "formula": "Cashflow / Umsatz"
+      },
+      {
+        "name": "Cashflow/Investitionsverhältnis",
+        "dependencies": [
+          "Cashflow",
+          "Nettoinvestitionen"
+        ],
+        "formula": "Cashflow / Nettoinvestitionen"
+      },
+      {
+        "name": "Free Cashflow",
+        "dependencies": [
+          "Cashflow",
+          "Nettoinvestitionen"
+        ],
+        "formula": "Cashflow ./. Nettoinvestitionen"
+      },
+      {
+        "name": "Verschuldungsfaktor",
+        "dependencies": [
+          "Effektivverschuldung",
+          "Cashflow"
+        ],
+        "formula": "Effektivverschuldung / Cashflow"
+      },
+      {
+        "name": "Tilgungsfaktor",
+        "dependencies": [
+          "Netto-Finanzschulden",
+          "Cashflow"
+        ],
+        "formula": "Netto-Finanzschulden / Cashflow"
+      },
+      {
+        "name": "Zinsdeckungsfaktor",
+        "dependencies": [
+          "Cashflow + Zinsen",
+          "Zinsen"
+        ],
+        "formula": "(Cashflow + Zinsen) / Zinsen"
+      },
+      {
+        "name": "Cash-burn-rate",
+        "dependencies": [
+          "Flüssige Mittel",
+          "Cashdrain"
+        ],
+        "formula": "Flüssige Mittel / Cashdrain"
+      }
+    ]
+  },
+  {
+    "title": "Aktivität",
+    "items": [
+      {
+        "name": "Umschlag Forderungen L+L",
+        "dependencies": [
+          "(Kredit-)Warenertrag",
+          "Ø Forderungen L+L"
+        ],
+        "formula": "(Kredit-)Warenertrag / Ø Forderungen L+L"
+      },
+      {
+        "name": "Zahlungsfrist Kunden",
+        "dependencies": [
+          "365 (evtl. 360)",
+          "Umschlag Forderungen L+L"
+        ],
+        "formula": "365 (evtl. 360) / Umschlag Forderungen L+L"
+      },
+      {
+        "name": "Lagerumschlag",
+        "dependencies": [
+          "Warenaufwand",
+          "Ø Warenvorrat"
+        ],
+        "formula": "Warenaufwand / Ø Warenvorrat"
+      },
+      {
+        "name": "Umschlag Verbindlichkeiten L+L",
+        "dependencies": [
+          "(Kredit-)Wareneinkäufe",
+          "Ø Verbindlichkeiten L+L"
+        ],
+        "formula": "(Kredit-)Wareneinkäufe / Ø Verbindlichkeiten L+L"
+      },
+      {
+        "name": "Zahlungsfrist Lieferanten",
+        "dependencies": [
+          "365 (evtl. 360)",
+          "Umschlag Verbindl. L+L"
+        ],
+        "formula": "365 (evtl. 360) / Umschlag Verbindl. L+L"
+      },
+      {
+        "name": "Kapitalumschlag",
+        "dependencies": [
+          "Umsatz",
+          "Gesamtkapital"
+        ],
+        "formula": "Umsatz / Gesamtkapital"
+      },
+      {
+        "name": "Umschlag des operativen Nettoumlaufvermögens",
+        "dependencies": [
+          "Umsatz",
+          "Operatives NUV"
+        ],
+        "formula": "Umsatz / Operatives NUV"
+      }
+    ]
+  },
+  {
+    "title": "Börsenkennzahlen",
+    "items": [
+      {
+        "name": "Gewinnrendite",
+        "dependencies": [
+          "Gewinn je Aktie",
+          "Aktienkurs"
+        ],
+        "formula": "Gewinn je Aktie / Aktienkurs"
+      },
+      {
+        "name": "Dividendenrendite",
+        "dependencies": [
+          "Dividende je Aktie",
+          "Aktienkurs"
+        ],
+        "formula": "Dividende je Aktie / Aktienkurs"
+      },
+      {
+        "name": "Aktienrendite",
+        "dependencies": [
+          "Dividende +/– Kursdifferenz",
+          "Kaufpreis Aktie"
+        ],
+        "formula": "(Dividende +/– Kursdifferenz) / Kaufpreis Aktie"
+      },
+      {
+        "name": "Dividendenausschüttungsquote",
+        "dependencies": [
+          "Dividende",
+          "Gewinn"
+        ],
+        "formula": "Dividende / Gewinn"
+      },
+      {
+        "name": "Kurs/Gewinn-Verhältnis, KGV",
+        "dependencies": [
+          "Aktienkurs",
+          "Gewinn je Aktie"
+        ],
+        "formula": "Aktienkurs / Gewinn je Aktie"
+      },
+      {
+        "name": "PEG ratio",
+        "dependencies": [
+          "KGV",
+          "Gewinnwachstum"
+        ],
+        "formula": "KGV / Gewinnwachstum"
+      },
+      {
+        "name": "Kurs/Buchwert-Verhältnis",
+        "dependencies": [
+          "Aktienkurs",
+          "Buchwert je Aktie"
+        ],
+        "formula": "Aktienkurs / Buchwert je Aktie"
+      }
+    ]
+  },
+  {
+    "title": "Kapitalstruktur (Passiven)",
+    "items": [
+      {
+        "name": "Fremdfinanzierungsgrad (Fremdkapitalquote)",
+        "dependencies": [
+          "Fremdkapital",
+          "Gesamtkapital"
+        ],
+        "formula": "Fremdkapital / Gesamtkapital"
+      },
+      {
+        "name": "Eigenfinanzierungsgrad (Eigenkapitalquote)",
+        "dependencies": [
+          "Eigenkapital",
+          "Gesamtkapital"
+        ],
+        "formula": "Eigenkapital / Gesamtkapital"
+      },
+      {
+        "name": "Selbstfinanzierungsgrad",
+        "dependencies": [
+          "Gewinnreserven",
+          "Eigenkapital"
+        ],
+        "formula": "Gewinnreserven / Eigenkapital"
+      }
+    ]
+  },
+  {
+    "title": "Vermögensstruktur (Aktiven)",
+    "items": [
+      {
+        "name": "Intensität des Umlaufvermögens",
+        "dependencies": [
+          "Umlaufvermögen",
+          "Gesamtvermögen"
+        ],
+        "formula": "Umlaufvermögen / Gesamtvermögen"
+      },
+      {
+        "name": "Intensität des Anlagevermögens",
+        "dependencies": [
+          "Anlagevermögen",
+          "Gesamtvermögen"
+        ],
+        "formula": "Anlagevermögen / Gesamtvermögen"
+      }
+    ]
+  },
+  {
+    "title": "Liquidität",
+    "items": [
+      {
+        "name": "Liquiditätsgrad 1",
+        "dependencies": [
+          "Flüssige Mittel",
+          "Kurzfristiges Fremdkapital"
+        ],
+        "formula": "Flüssige Mittel / Kurzfristiges Fremdkapital"
+      },
+      {
+        "name": "Liquiditätsgrad 2 ",
+        "dependencies": [
+          "Flüssige Mittel + Forderungen",
+          "Kurzfristiges Fremdkapital"
+        ],
+        "formula": "(Flüssige Mittel + Forderungen) / Kurzfristiges Fremdkapital"
+      },
+      {
+        "name": "Liquiditätsgrad 3 ",
+        "dependencies": [
+          "Umlaufvermögen",
+          "Kurzfristiges Fremdkapital"
+        ],
+        "formula": "Umlaufvermögen / Kurzfristiges Fremdkapital"
+      }
+    ]
+  },
+  {
+    "title": "Anlagedeckung (goldene Bilanzregel)",
+    "items": [
+      {
+        "name": "Anlagedeckungsgrad 1 ",
+        "dependencies": [
+          "Eigenkapital",
+          "Anlagevermögen"
+        ],
+        "formula": "Eigenkapital / Anlagevermögen"
+      },
+      {
+        "name": "Anlagedeckungsgrad 2 ",
+        "dependencies": [
+          "Eigenkap. + langfr. Fremdkap.",
+          "Anlagevermögen"
+        ],
+        "formula": "(Eigenkap. + langfr. Fremdkap.) / Anlagevermögen"
+      }
+    ]
+  },
+  {
+    "title": "Kapitalrentabilität",
+    "items": [
+      {
+        "name": "Rentabilität des Eigenkapitals (ROE)",
+        "dependencies": [
+          "Gewinn",
+          "Eigenkapital"
+        ],
+        "formula": "Gewinn / Eigenkapital"
+      },
+      {
+        "name": "Rentabilität des Gesamtkapitals (ROA)",
+        "dependencies": [
+          "EBIT",
+          "Gesamtkapital"
+        ],
+        "formula": "EBIT / Gesamtkapital"
+      },
+      {
+        "name": "Rentabilität des investierten Kapitals (ROIC, RONOA, ROCE)",
+        "dependencies": [
+          "Gewinn + Zins",
+          "Eigenkap. + finanzielles Fremdkap."
+        ],
+        "formula": "Gewinn + Zins / (Eigenkap. + finanzielles Fremdkap.)"
+      }
+    ]
+  },
+  {
+    "title": "Umsatzrentabilität",
+    "items": [
+      {
+        "name": "Bruttogewinnmarge",
+        "dependencies": [
+          "Bruttogewinn",
+          "Umsatz"
+        ],
+        "formula": "Bruttogewinn / Umsatz"
+      },
+      {
+        "name": "EBIT-Marge",
+        "dependencies": [
+          "EBIT",
+          "Umsatz"
+        ],
+        "formula": "EBIT / Umsatz"
+      },
+      {
+        "name": "EBITDA-Marge",
+        "dependencies": [
+          "EBITDA",
+          "Umsatz"
+        ],
+        "formula": "EBITDA / Umsatz"
+      },
+      {
+        "name": "Gewinnmarge",
+        "dependencies": [
+          "Gewinn",
+          "Umsatz"
+        ],
+        "formula": "Gewinn / Umsatz"
+      },
+      {
+        "name": "Deckungsbeitragsmarge",
+        "dependencies": [
+          "Deckungsbeitrag",
+          "Umsatz"
+        ],
+        "formula": "Deckungsbeitrag / Umsatz"
+      }
+    ]
+  },
+  {
+    "title": "Diverse Kennzahlen",
+    "items": [
+      {
+        "name": "Flächenproduktivität (Umsatz je m2)",
+        "dependencies": [
+          "Umsatz",
+          "Verkaufsfläche in m2"
+        ],
+        "formula": "Umsatz / Verkaufsfläche in m2"
+      },
+      {
+        "name": "Mitarbeiterproduktivität (Umsatz je Mitarbeiter)",
+        "dependencies": [
+          "Umsatz",
+          "Anzahl Mitarbeiter (FTE)"
+        ],
+        "formula": "Umsatz / Anzahl Mitarbeiter (FTE)"
+      },
+      {
+        "name": "Stundenproduktivität (Umsatz je produktive Std.)",
+        "dependencies": [
+          "Umsatz",
+          "Anzahl produktive Stunden"
+        ],
+        "formula": "Umsatz / Anzahl produktive Stunden"
+      },
+      {
+        "name": "Materialintensität",
+        "dependencies": [
+          "Materialaufwand",
+          "Produktionsertrag"
+        ],
+        "formula": "Materialaufwand / Produktionsertrag"
+      },
+      {
+        "name": "Personalintensität (Arbeitsintensität)",
+        "dependencies": [
+          "Personalaufwand",
+          "Produktionsertrag"
+        ],
+        "formula": "Personalaufwand / Produktionsertrag"
+      },
+      {
+        "name": "Kapitalintensität",
+        "dependencies": [
+          "Abschreibungsaufwand",
+          "Produktionsertrag"
+        ],
+        "formula": "Abschreibungsaufwand / Produktionsertrag"
+      },
+      {
+        "name": "Book-to-bill-ratio ",
+        "dependencies": [
+          "Auftragseingang (book)",
+          "Fakturierter Umsatz (bill)"
+        ],
+        "formula": "Auftragseingang (book) / Fakturierter Umsatz (bill)"
+      }
+    ]
+  }
+]

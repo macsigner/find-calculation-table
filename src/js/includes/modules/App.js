@@ -34,12 +34,14 @@ class App {
     render() {
         this.el.innerHTML = '';
 
-        for(let entry of this.getData()) {
+        const data = this.getData();
+
+        for(let key in data) {
             const tableWrapper = document.createElement('div');
 
             this.el.appendChild(tableWrapper);
 
-            new LookupTable(tableWrapper, entry);
+            new LookupTable(tableWrapper, data[key], key);
         }
     }
 

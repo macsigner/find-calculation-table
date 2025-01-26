@@ -5,7 +5,7 @@ import { data } from '../data.js';
 updateDownloadButton();
 
 class LookupTable {
-    constructor(el, data = data.cashflowAnalysis) {
+    constructor(el, data, id) {
         const items = data.items;
         const title = data.title;
         const dependencies = Array.from(new Set(items.flatMap(d => d.dependencies))).sort();
@@ -27,10 +27,12 @@ class LookupTable {
             return `<tr><th data-row="${keyRow}">${dRow}</th>${cells}</tr>`;
         }).join('');
 
+        const headerButtons = `<button class="button" data-delete-table="${id}" title="${title} löschen">Löschen</button>`;
+
         let table = `
             <h1>${title}</h1>
             <table style="--cols: ${dependencies.length + 1}">
-                <tr><th></th>${header}</tr>
+                <tr><th>${headerButtons}</th>${header}</tr>
                 ${rows}
             </table>`;
 
