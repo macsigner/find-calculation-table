@@ -1,3 +1,15 @@
 .main-footer {
+    background-color: var(--color-accent);
     padding: var(--side-margin);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__download {
+        display: none;
+    }
+
+    &__download:has([href]) {
+        display: block;
+    }
 }

@@ -1,6 +1,10 @@
 
-import { delegate } from '../tools.js';
+import { delegate, updateDownload } from '../tools.js';
 import { data } from '../data.js';
+
+localStorage.setItem('tables', JSON.stringify(data));
+
+updateDownload();
 
 class LookupTable {
     constructor(el, data = data.cashflowAnalysis) {

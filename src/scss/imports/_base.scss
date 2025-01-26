@@ -8,10 +8,6 @@
     appearance: none;
 }
 
-:root {
-    --side-margin: 2rem;
-}
-
 html {
     font-size: 62.5%;
 }
@@ -20,7 +16,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100svh;
-    font: 1.2rem/1.6 sans-serif;
+    font: 1.6rem/1.6 sans-serif;
+    background-color: var(--color-white);
 }
 
 main {
@@ -37,6 +34,7 @@ main table {
 table {
     border-collapse: collapse;
     table-layout: fixed;
+    font-size: 1.2rem;
 }
 
 td,

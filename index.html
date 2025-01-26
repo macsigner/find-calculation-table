@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="/src/img/favicons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/src/img/favicons/favicon.svg" />
-    <link rel="shortcut icon" href="/src/img/favicons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicons/apple-touch-icon.png" />
-    <link rel="manifest" href="/src/img/favicons/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/src/img/favicons/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="/src/img/favicons/favicon.svg"/>
+    <link rel="shortcut icon" href="/src/img/favicons/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicons/apple-touch-icon.png"/>
+    <link rel="manifest" href="/src/img/favicons/site.webmanifest"/>
     <title>Vite App</title>
 </head>
 <body>
@@ -17,8 +17,34 @@
 <footer class="main-footer">
     <a href="https://www.flaticon.com/free-icons/formula" title="formula icons">Formula icons created by Smashicons -
         Flaticon</a>
-    <a class="button"></a>
+    <div class="main-footer__download">
+        <a class="button" id="download-button">Stand als Datei herunterladen</a>
+    </div>
 </footer>
+<template id="form-entry">
+    <form>
+        <label>
+            Bezeichnung:
+            <input type="text" name="name">
+        </label>
+        <label>
+            Abhängigkeiten <em>(die einzelnen Werte der Formel)</em>):
+            <textarea type="text" name="dependencies"></textarea>
+        </label>
+        <label>
+            Formel <em>(Nicht nötig aber zu Vollständigkeit)</em>
+            <input type="text" name="formula">
+        </label>
+    </form>
+</template>
+<template id="form-table">
+    <form>
+        <label>
+            Titel:
+            <input type="text" name="title">
+        </label>
+    </form>
+</template>
 <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

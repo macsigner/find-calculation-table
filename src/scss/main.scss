@@ -1,3 +1,6 @@
+@use 'normalize.css';
+@use 'imports/vars';
 @use 'imports/base';
 @use 'imports/modules/main_footer';
+@use 'imports/modules/button';
 @use 'imports/modules/result';
