@@ -1,9 +1,12 @@
 import LookupTable from './LookupTable.js';
 import { data } from '../data.js';
+import { delegate } from '../tools.js';
+import Editor from './Editor.js';
 
 class App {
     constructor() {
         const el = document.querySelector('#app');
+
         const keys = [
             'cashflowAnalysis',
             'activity',
@@ -17,6 +20,8 @@ class App {
 
             new LookupTable(el, data[key]);
         }
+
+        new Editor();
     }
 }
 

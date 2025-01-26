@@ -1,0 +1,25 @@
+/**
+ * edit-area bem module
+ */
+
+.edit-area {
+    display: none;
+    overflow: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(white, .8);
+
+    &.is-active {
+        display: flex;
+    }
+
+    &__inner {
+        width: 80rem;
+        max-width: calc(100% - 10rem);
+        padding: 6rem var(--side-margin);
+        background-color: var(--color-white);
+        box-shadow: -.4rem 0 1rem rgba(black, .4);
+        margin-left: auto;
+    }
+}

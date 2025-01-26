@@ -38,6 +38,7 @@ a {
 
 button {
     cursor: pointer;
+    background-color: transparent;
 }
 
 table {
@@ -83,4 +84,25 @@ th {
 
 .active-col.active-row {
     background-color: rgba(green, .7);
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    border: 2px solid var(--color-primary);
+    padding: 1rem 1rem .8rem;
+    border-radius: var(--default-radius);
+    margin-bottom: 2rem;
+}
+
+label input {
+    input,
+    textarea {
+        margin-top: 1rem;
+    }
+}
+
+label {
+    font-size: 1.8rem;
 }
