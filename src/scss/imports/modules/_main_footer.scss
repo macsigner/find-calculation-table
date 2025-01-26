@@ -6,11 +6,13 @@
     padding: var(--side-margin);
     background-color: var(--color-accent);
 
-    &__download {
-        display: none;
-    }
+    &__options {
+        display: flex;
+        gap: var(--gap);
+        justify-content: flex-end;
 
-    &__download:has([href]) {
-        display: block;
+        :where(a:not(a[href])) {
+            display: none;
+        }
     }
 }

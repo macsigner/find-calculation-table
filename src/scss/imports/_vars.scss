@@ -5,5 +5,6 @@
     --color-primary-complementary: var(--color-white);
     --color-accent: #D4ADEA;
     --color-accent-transparent: #{rgba(#D4ADEA, .2)};
-    --default-radius: .6rem
+    --default-radius: .6rem;
+    --gap: 2rem;
 }

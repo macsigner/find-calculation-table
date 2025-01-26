@@ -4,6 +4,7 @@ import Editor from './Editor.js';
 import DeleteEntry from './DeleteEntry.js';
 import AddEntry from './AddEntry.js';
 import { updateDownloadButton } from '../tools.js';
+import ResetToOriginalData from './ResetToOriginalData.js';
 
 class App {
     constructor() {
@@ -13,6 +14,7 @@ class App {
         new DeleteEntry();
         new AddEntry();
         new Editor();
+        new ResetToOriginalData();
 
         this.render();
 
@@ -20,10 +22,13 @@ class App {
             e.preventDefault();
         });
 
-        document.addEventListener('editorUpdate', e => {
+        const reset = () => {
             updateDownloadButton();
             this.render();
-        });
+        };
+
+        document.addEventListener('editorUpdate', () => reset());
+        document.addEventListener('resetToOriginalData', () => reset());
     }
 
     render() {
