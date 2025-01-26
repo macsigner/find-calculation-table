@@ -1,9 +1,10 @@
 .main-footer {
-    background-color: var(--color-accent);
-    padding: var(--side-margin);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 4rem;
+    padding: var(--side-margin);
+    background-color: var(--color-accent);
 
     &__download {
         display: none;
