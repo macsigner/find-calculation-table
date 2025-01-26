@@ -43,8 +43,26 @@ class App {
 
             new LookupTable(tableWrapper, data[key], key);
         }
+
+        const tableWrapper = document.createElement('div');
+        tableWrapper.classList.add('monster-table');
+
+        this.el.appendChild(tableWrapper);
+
+        const monster = {
+            title: 'Monstertabelle',
+            items: data.flatMap(item => {
+                return item.items;
+            }),
+        };
+
+        new LookupTable(tableWrapper, monster, data.length + 1);
     }
 
+    /**
+     *
+     * @returns {null|Array}
+     */
     getData() {
         return JSON.parse(localStorage.getItem('tables')) || data;
     }
