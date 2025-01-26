@@ -1,4 +1,4 @@
-import '../style.scss'
+import '../scss/main.scss'
 import { data } from './includes/data.js';
 
 import LookupTable from './includes/modules/LookupTable.js';

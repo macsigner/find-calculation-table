@@ -62,34 +62,6 @@ tr .result {
     background-color: rgba(white, .3);
 }
 
-.main-footer {
-    padding: var(--side-margin);
-}
-
-.result {
-    hyphens: auto;
-}
-.result:hover {
-    z-index: 10;
-}
-
-.formula {
-    background: white;
-    padding: 20px;
-    border: 1px solid black;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    min-width: 100%;
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.result:hover .formula {
-    display: block;
-}
-
 td,
 th {
     &.active-row,

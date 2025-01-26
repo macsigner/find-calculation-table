@@ -5,3 +5,7 @@ export const delegate = (selector, fn) => {
         }
     }
 }
+
+export const updateDownload = () => {
+
+};
