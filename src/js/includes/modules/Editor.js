@@ -10,6 +10,14 @@ class Editor {
         this.inner.classList.add('edit-area__inner');
         this.editArea.appendChild(this.inner);
 
+        document.addEventListener('click', e => {
+            if (this.editArea.matches('.is-active') && e.target.closest('.edit-area__inner') === this.inner) {
+                return;
+            }
+
+            this.close();
+        });
+
         document.addEventListener('click', delegate('[data-add-table]', () => {
             this.open();
 
@@ -18,12 +26,25 @@ class Editor {
             this.inner.appendChild(this._wrapperForm.cloneNode(true));
         }));
 
-        document.addEventListener('click', e => {
-            if(e.target.closest('.edit-area__inner') === this.inner) {
+        this.editArea.addEventListener('submit', e => {
+            e.preventDefault();
+
+            let isValid = true;
+            for (let form of Array.from(e.target.querySelectorAll('form'))) {
+                isValid = form.checkValidity();
+
+                if (!isValid) {
+                    form.reportValidity();
+
+                    break;
+                }
+            }
+
+            if (!isValid) {
                 return;
             }
 
-            this.close();
+            this.addDataFromForm(e.target);
         })
     }
 
@@ -32,7 +53,43 @@ class Editor {
     }
 
     close() {
-        this.editArea.classList.add('is-active');
+        this.editArea.classList.remove('is-active');
+    }
+
+    addDataFromForm(form) {
+        let data = JSON.parse(localStorage.getItem('tables'));
+
+        data.push(this.getDataFromForm(form));
+
+        localStorage.setItem('tables', JSON.stringify(data));
+
+        this.close();
+    }
+
+    /**
+     *
+     * @param {HTMLFormElement} form
+     * @returns {{}}
+     */
+    getDataFromForm(form) {
+        const formData = new FormData(form);
+        const obj = {};
+
+        for (let key of formData.keys()) {
+            obj[key] = formData.get(key);
+        }
+
+        obj.items = Array.from(form.querySelectorAll('form.data-form')).map(subform => {
+            const subformData = new FormData(subform);
+
+            return {
+                name: subformData.get('name'),
+                dependencies: subformData.get('dependencies').trim().split('\n'),
+                formula: subformData.get('formula'),
+            };
+        });
+
+        return obj;
     }
 }
 

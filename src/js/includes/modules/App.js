@@ -8,28 +8,29 @@ import AddEntry from './AddEntry.js';
 class App {
     constructor() {
         const el = document.querySelector('#app');
+        this.el = el;
+
         new DeleteEntry();
         new AddEntry();
-
-        const keys = [
-            'cashflowAnalysis',
-            'activity',
-        ];
-
-        for(let key of keys) {
-            const tableWrapper = document.createElement('div');
-            tableWrapper.dataset.table = key;
-
-            el.appendChild(tableWrapper);
-
-            new LookupTable(el, data[key]);
-        }
-
         new Editor();
+
+        this.render();
 
         document.addEventListener('submit', e => {
             e.preventDefault();
-        })
+        });
+    }
+
+    render() {
+        this.el.innerHTML = '';
+
+        for(let entry of data) {
+            const tableWrapper = document.createElement('div');
+
+            this.el.appendChild(tableWrapper);
+
+            new LookupTable(tableWrapper, entry);
+        }
     }
 }
 

@@ -1,5 +1,5 @@
-export const data = {
-    cashflowAnalysis: {
+export const data = [
+    {
         title: 'Cashflow-Analyse',
         items: [
             {
@@ -60,7 +60,7 @@ export const data = {
             },
         ]
     },
-    activity: {
+    {
         title: 'Aktivität',
         items: [
             {
@@ -121,4 +121,4 @@ export const data = {
             },
         ]
     }
-}
+]

@@ -32,12 +32,13 @@
 <template id="form-entry">
     <form class="data-form">
         <label>
-            Bezeichnung:
-            <input type="text" name="name">
+            Bezeichnung<sup>*</sup>
+            <input value="Bezeichnung" type="text" name="name" required>
         </label>
         <label>
-            Abhängigkeiten <em>(die einzelnen Werte der Formel)</em>):
-            <textarea type="text" name="dependencies"></textarea>
+            Abhängigkeiten<sup>*</sup> <em>(die einzelnen Werte der Formel)</em>)
+            <textarea type="text" name="dependencies" required>Something
+else</textarea>
         </label>
         <label>
             Formel <em>(Nicht nötig aber zu Vollständigkeit)</em>
@@ -51,12 +52,13 @@
 <template id="form-table" class="form-table">
     <form>
         <label>
-            Titel:
-            <input type="text" name="title">
+            Titel<sup>*</sup>
+            <input value="Titel" type="text" name="title" required>
         </label>
         <div class="form-table__add-data">
-            <button class="button" data-add-entry>Daten hinzufügen +</button>
+            <button class="button" type="button" data-add-entry>Daten hinzufügen +</button>
         </div>
+        <p><em><sup>*</sup>Pflichtfelder</em></p>
         <hr>
         <button class="button">Speichern</button>
     </form>
