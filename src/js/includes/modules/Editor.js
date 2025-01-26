@@ -57,11 +57,20 @@ class Editor {
     }
 
     addDataFromForm(form) {
-        let data = JSON.parse(localStorage.getItem('tables'));
+        let localData = JSON.parse(localStorage.getItem('tables'));
 
-        data.push(this.getDataFromForm(form));
+        const data = this.getDataFromForm(form);
+        localData.push(data);
 
-        localStorage.setItem('tables', JSON.stringify(data));
+        localStorage.setItem('tables', JSON.stringify(localData));
+
+        this.editArea.dispatchEvent(new CustomEvent('editorUpdate', {
+            bubbles: true,
+            detail: {
+                editor: this,
+                data,
+            }
+        }));
 
         this.close();
     }

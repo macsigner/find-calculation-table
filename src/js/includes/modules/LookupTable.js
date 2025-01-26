@@ -2,8 +2,6 @@
 import { delegate, updateDownloadButton } from '../tools.js';
 import { data } from '../data.js';
 
-localStorage.setItem('tables', JSON.stringify(data));
-
 updateDownloadButton();
 
 class LookupTable {
