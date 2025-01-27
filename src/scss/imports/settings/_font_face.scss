@@ -1,0 +1,9 @@
+@use '../../../fonts/icons/variables';
+
+@font-face {
+    font-family: '#{variables.$icomoon-font-family}';
+    src: url('../fonts/icons/fonts/icomoon.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

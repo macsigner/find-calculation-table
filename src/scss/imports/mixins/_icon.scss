@@ -1,0 +1,11 @@
+/**
+ * icon bem module
+ */
+
+@use '../../../fonts/icons/variables';
+
+@mixin icon {
+    font-family: variables.$icomoon-font-family;
+    line-height: 1;
+    speak: none;
+}

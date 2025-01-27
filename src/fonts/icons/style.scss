@@ -3,9 +3,9 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?j0ow4q') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?j0ow4q') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?j0ow4q##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?7revbh') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?7revbh') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?7revbh##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -31,14 +31,14 @@
     content: $icon--home; 
   }
 }
-.icon--pencil {
+.icon--edit {
   &:before {
-    content: $icon--pencil; 
+    content: $icon--edit; 
   }
 }
-.icon--floppy-disk {
+.icon--save {
   &:before {
-    content: $icon--floppy-disk; 
+    content: $icon--save; 
   }
 }
 .icon--cog {
@@ -46,14 +46,14 @@
     content: $icon--cog; 
   }
 }
-.icon--bin2 {
+.icon--bin {
   &:before {
-    content: $icon--bin2; 
+    content: $icon--bin; 
   }
 }
-.icon--cloud-download {
+.icon--download {
   &:before {
-    content: $icon--cloud-download; 
+    content: $icon--download; 
   }
 }
 .icon--cloud-upload {
@@ -79,11 +79,6 @@
 .icon--minus {
   &:before {
     content: $icon--minus; 
-  }
-}
-.icon--cancel-circle {
-  &:before {
-    content: $icon--cancel-circle; 
   }
 }
 .icon--cross {

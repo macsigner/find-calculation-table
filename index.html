@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/src/img/favicons/favicon.ico"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicons/apple-touch-icon.png"/>
     <link rel="manifest" href="/src/img/favicons/site.webmanifest"/>
+    <link rel="stylesheet" href="/src/scss/main.scss">
     <title>Vite App</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
             <input type="text" name="formula">
         </label>
         <div class="data-form__options">
-            <button class="button" data-delete-entry>Eintrag entfernen -</button>
+            <button class="button" data-delete-entry>Eintrag entfernen</button>
         </div>
     </form>
 </template>
@@ -49,11 +50,11 @@
             <input type="text" name="title" required>
         </label>
         <div class="form-table__add-data">
-            <button class="button" type="button" data-add-entry>Daten hinzufügen +</button>
+            <button class="button" type="button" data-add-entry>Daten hinzufügen</button>
         </div>
         <p><em><sup>*</sup>Pflichtfelder</em></p>
         <hr>
-        <button class="button">Speichern</button>
+        <button class="button" type="submit">Speichern</button>
     </form>
 </template>
 

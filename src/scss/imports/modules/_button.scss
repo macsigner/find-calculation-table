@@ -2,14 +2,85 @@
  * button bem module
  */
 
+@use '../../../fonts/icons/variables';
+@use '../mixins/icon';
+
+@mixin button-icon($icon) {
+    & {
+        white-space: nowrap;
+    }
+
+    &::after {
+        @include icon.icon;
+
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 1rem;
+    }
+
+    &::after {
+        content: $icon;
+
+        @content;
+    }
+}
+
 .button {
     padding: .5em 1em .3em;
     color: var(--color-primary-complementary);
     background-color: var(--color-primary);
     border: 1px solid var(--color-primary);
+    transition: border var(--trans-out), color var(--trans-out), background var(--trans-out);
+
+    &:hover {
+        color: var(--color-primary);
+        background-color: var(--color-primary-complementary);
+        transition-duration: var(--trans-in);
+    }
 
     &--outline {
         color: var(--color-primary);
         background-color: var(--color-primary-complementary);
+    }
+
+    &[data-delete-table] {
+        @include button-icon(variables.$icon--cross);
+    }
+
+    &[data-edit-table] {
+        @include button-icon(variables.$icon--edit) {
+            font-size: 1.2em;
+        };
+    }
+
+    &[data-reset-to-original-data] {
+        @include button-icon(variables.$icon--warning);
+    }
+
+    &[type='submit'] {
+        @include button-icon(variables.$icon--save) {
+            margin-top: -.1em;
+            margin-left: 1.4rem;
+            font-size: 1.4em;
+        };
+    }
+
+    &[data-add-table],
+    &[data-add-entry] {
+        @include button-icon(variables.$icon--plus) {
+            margin-top: -.1em;
+        };
+    }
+
+    &[data-delete-entry] {
+        @include button-icon(variables.$icon--minus) {
+            margin-top: -.1em;
+        };
+    }
+
+    &[id='download-button'] {
+        @include button-icon(variables.$icon--download) {
+            font-size: 1.4em;
+        };
     }
 }
