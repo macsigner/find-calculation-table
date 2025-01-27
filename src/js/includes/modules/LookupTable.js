@@ -1,6 +1,5 @@
-
-import { delegate, updateDownloadButton } from '../tools.js';
-import { data } from '../data.js';
+import {delegate, updateDownloadButton} from '../tools.js';
+import {data} from '../data.js';
 
 updateDownloadButton();
 
@@ -27,12 +26,16 @@ class LookupTable {
             return `<tr><th data-row="${keyRow}">${dRow}</th>${cells}</tr>`;
         }).join('');
 
-        const headerButtons = `<button class="button" data-delete-table="${id}" title="${title} löschen">Löschen</button>`;
+        let headerButtons;
+
+        if (typeof id === 'number') {
+            headerButtons = `<button class="button" data-delete-table="${id}" title="${title} löschen">Löschen</button>`;
+        }
 
         let table = `
             <h1>${title}</h1>
             <table style="--cols: ${dependencies.length + 1}">
-                <tr><th>${headerButtons}</th>${header}</tr>
+                <tr><th>${headerButtons ? headerButtons : ''}</th>${header}</tr>
                 ${rows}
             </table>`;
 

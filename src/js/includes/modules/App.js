@@ -5,6 +5,7 @@ import DeleteEntry from './DeleteEntry.js';
 import AddEntry from './AddEntry.js';
 import { updateDownloadButton } from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
+import DeleteTable from './DeleteTable.js';
 
 class App {
     constructor() {
@@ -15,6 +16,7 @@ class App {
         new AddEntry();
         new Editor();
         new ResetToOriginalData();
+        new DeleteTable();
 
         this.render();
 
@@ -29,6 +31,7 @@ class App {
 
         document.addEventListener('editorUpdate', () => reset());
         document.addEventListener('resetToOriginalData', () => reset());
+        document.addEventListener('deleteTable', () => reset());
     }
 
     render() {
@@ -41,7 +44,7 @@ class App {
 
             this.el.appendChild(tableWrapper);
 
-            new LookupTable(tableWrapper, data[key], key);
+            new LookupTable(tableWrapper, data[key], Number(key));
         }
 
         const tableWrapper = document.createElement('div');
@@ -56,7 +59,7 @@ class App {
             }),
         };
 
-        new LookupTable(tableWrapper, monster, data.length + 1);
+        new LookupTable(tableWrapper, monster);
     }
 
     /**
