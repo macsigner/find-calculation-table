@@ -1,0 +1,104 @@
+@use "variables" as *;
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?j0ow4q') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?j0ow4q') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?j0ow4q##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--home {
+  &:before {
+    content: $icon--home; 
+  }
+}
+.icon--pencil {
+  &:before {
+    content: $icon--pencil; 
+  }
+}
+.icon--floppy-disk {
+  &:before {
+    content: $icon--floppy-disk; 
+  }
+}
+.icon--cog {
+  &:before {
+    content: $icon--cog; 
+  }
+}
+.icon--bin2 {
+  &:before {
+    content: $icon--bin2; 
+  }
+}
+.icon--cloud-download {
+  &:before {
+    content: $icon--cloud-download; 
+  }
+}
+.icon--cloud-upload {
+  &:before {
+    content: $icon--cloud-upload; 
+  }
+}
+.icon--attachment {
+  &:before {
+    content: $icon--attachment; 
+  }
+}
+.icon--warning {
+  &:before {
+    content: $icon--warning; 
+  }
+}
+.icon--plus {
+  &:before {
+    content: $icon--plus; 
+  }
+}
+.icon--minus {
+  &:before {
+    content: $icon--minus; 
+  }
+}
+.icon--cancel-circle {
+  &:before {
+    content: $icon--cancel-circle; 
+  }
+}
+.icon--cross {
+  &:before {
+    content: $icon--cross; 
+  }
+}
+.icon--arrow-right {
+  &:before {
+    content: $icon--arrow-right; 
+  }
+}
+.icon--table {
+  &:before {
+    content: $icon--table; 
+  }
+}
+

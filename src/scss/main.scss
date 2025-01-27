@@ -1,6 +1,9 @@
 @use 'normalize.css';
 @use 'imports/vars';
+@use '../fonts/icons/variables';
+@use '../fonts/icons/style';
 @use 'imports/base';
+@use 'imports/modules/block_icon';
 @use 'imports/modules/main_footer';
 @use 'imports/modules/button';
 @use 'imports/modules/result';
