@@ -29,7 +29,12 @@ class LookupTable {
         let headerButtons;
 
         if (typeof id === 'number') {
-            headerButtons = `<button class="button" data-delete-table="${id}" title="${title} löschen">Löschen</button>`;
+            headerButtons = `
+                <div class="table-options">
+                    <button class="button" data-delete-table="${id}" title="${title} löschen">Löschen</button>
+                    <button class="button" data-edit-table="${id}" title="${title} editieren">Editieren</button>
+                </div>
+            `;
         }
 
         let table = `
