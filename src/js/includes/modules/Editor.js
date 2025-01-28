@@ -10,6 +10,10 @@ class Editor {
         this.inner.classList.add('edit-area__inner');
         this.editArea.appendChild(this.inner);
 
+        document.addEventListener('click', delegate('[data-add-entry]', e => {
+            e.target.parentNode.insertBefore(document.createElement('data-entry'), e.target);
+        }));
+
         document.addEventListener('click', e => {
             if (this.editArea.matches('.is-active') && e.target.closest('.edit-area__inner') === this.inner) {
                 return;
