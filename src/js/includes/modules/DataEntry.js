@@ -1,3 +1,5 @@
+import { delegate } from '../tools.js';
+
 class DataEntry extends HTMLElement {
     static formAssociated = true;
 
@@ -9,6 +11,10 @@ class DataEntry extends HTMLElement {
 
         this.#internals = this.attachInternals();
         this.#template = document.querySelector('#data-entry');
+
+        this.addEventListener('click', delegate('[data-delete-entry]', e => {
+            this.remove();
+        }));
     }
 
     connectedCallback() {

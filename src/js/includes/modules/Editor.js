@@ -1,5 +1,4 @@
 import { delegate } from '../tools.js';
-import AddEntry from './AddEntry.js';
 
 class Editor {
     constructor() {
@@ -48,15 +47,15 @@ class Editor {
         })
     }
 
-    open(data) {
+    open(data, index) {
         this.editArea.classList.add('is-active');
 
         this.inner.innerHTML = '';
 
         this.inner.appendChild(this._wrapperForm.cloneNode(true));
 
-        if(data) {
-            this.applyData(data);
+        if (data && typeof index === 'number' && !isNaN(index)) {
+            this.applyData(data, index);
         }
     }
 
@@ -64,20 +63,36 @@ class Editor {
         this.editArea.classList.remove('is-active');
     }
 
-    applyData(data) {
-        const title = this.inner.querySelector('[name="title"]');
-        title.value = data.title;
+    applyData(arr, index) {
+        const data = arr[index];
+
+        this.inner.querySelector('[name="title"]').value = data.title;
+        this.inner.querySelector('[name="index"]').value = index ? index : '';
 
         const addEntryButton = this.inner.querySelector('[data-add-entry]');
 
-        AddEntry.setEntry(addEntryButton, data);
+        for (let item of data.items) {
+            const entry = document.createElement('data-entry');
+
+            addEntryButton.parentNode.insertBefore(entry, addEntryButton);
+            entry.value = item;
+        }
     }
 
     addDataFromForm(form) {
         let localData = JSON.parse(localStorage.getItem('tables'));
 
         const data = this.getDataFromForm(form);
-        localData.push(data);
+
+        console.log(data.index);
+        if (data.index !== '') {
+            localData[data.index] = data;
+
+            console.log(localData);
+        } else {
+            localData.push(data);
+        }
+
 
         localStorage.setItem('tables', JSON.stringify(localData));
 

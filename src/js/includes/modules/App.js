@@ -1,8 +1,6 @@
 import LookupTable from './LookupTable.js';
 import { data } from '../data.js';
 import Editor from './Editor.js';
-import DeleteEntry from './DeleteEntry.js';
-import AddEntry from './AddEntry.js';
 import { delegate, updateDownloadButton } from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
@@ -11,8 +9,6 @@ class App {
     constructor(el = document.querySelector('#app')) {
         this.el = el;
 
-        new DeleteEntry();
-        new AddEntry();
         new ResetToOriginalData();
         new DeleteTable();
         this.editor = new Editor();
@@ -35,7 +31,7 @@ class App {
         document.addEventListener('click', delegate('[data-edit-table]', e => {
             const id = Number(e.target.closest('[data-edit-table]').dataset.editTable);
 
-            this.editor.open(this.getData()[id]);
+            this.editor.open(this.getData(), id);
         }));
     }
 
