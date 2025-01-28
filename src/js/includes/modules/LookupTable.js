@@ -38,11 +38,13 @@ class LookupTable {
         }
 
         let table = `
-            <h1>${title}</h1>
-            <table style="--cols: ${dependencies.length + 1}">
-                <tr><th>${headerButtons ? headerButtons : ''}</th>${header}</tr>
-                ${rows}
-            </table>`;
+            <h1 class="tabs__title">${title}</h1>
+            <div class="tabs__item">
+                <table style="--cols: ${dependencies.length + 1}">
+                    <tr><th>${headerButtons ? headerButtons : ''}</th>${header}</tr>
+                    ${rows}
+                </table>
+            </div>`;
 
         el.innerHTML = table;
 

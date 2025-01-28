@@ -8,6 +8,9 @@ import DeleteTable from './DeleteTable.js';
 class App {
     constructor(el = document.querySelector('#app')) {
         this.el = el;
+        this.tabs = document.createElement('div');
+        this.tabs.classList.add('tabs');
+        this.el.appendChild(this.tabs);
 
         new ResetToOriginalData();
         new DeleteTable();
@@ -33,34 +36,54 @@ class App {
 
             this.editor.open(this.getData(), id);
         }));
+
+        this.el.addEventListener('click', delegate('.tabs__title', e => {
+            const header = e.target.closest('.tabs__title');
+            this.el.querySelectorAll('.tabs__title').forEach(el => el.classList.toggle('active', el === header));
+        }));
     }
 
     render() {
-        this.el.innerHTML = '';
+        this.tabs.innerHTML = '';
 
         const data = this.getData();
 
         for (let key in data) {
-            const tableWrapper = document.createElement('div');
+            const wrapper = this.renderSingleTable(data[key], {key: Number(key)});
 
-            this.el.appendChild(tableWrapper);
+            if(key !== '0') {
+                continue;
+            }
 
-            new LookupTable(tableWrapper, data[key], Number(key));
+            wrapper.querySelector('.tabs__title').classList.add('active');
         }
 
         const tableWrapper = document.createElement('div');
         tableWrapper.classList.add('monster-table');
 
-        this.el.appendChild(tableWrapper);
-
-        const monster = {
+        this.renderSingleTable({
             title: 'Monstertabelle',
             items: data.flatMap(item => {
                 return item.items;
             }),
-        };
+        }, {
+            el: tableWrapper,
+        });
+    }
 
-        new LookupTable(tableWrapper, monster);
+    renderSingleTable(data, options) {
+        const tableWrapper = options.el || document.createElement('div');
+        tableWrapper.classList.add('tabs__item-wrapper');
+
+        this.tabs.appendChild(tableWrapper);
+
+        if (typeof options.key !== 'undefined') {
+            new LookupTable(tableWrapper, data, options.key);
+        } else {
+            new LookupTable(tableWrapper, data);
+        }
+
+        return tableWrapper;
     }
 
     /**

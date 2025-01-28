@@ -1,0 +1,43 @@
+/**
+ * tabs bem module
+ */
+
+.tabs {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--gap);
+
+    &__title {
+        flex: 1 1 0;
+        order: -1;
+        margin: 0;
+        font-size: 1.6rem;
+        padding: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 1px solid var(--color-primary);
+        border-bottom-width: 0;
+        color: var(--color-primary);
+    }
+
+    &__title.active {
+        flex-basis: min-content;
+        color: var(--color-primary-complementary);
+        background-color: var(--color-primary);
+    }
+
+    &__item-wrapper {
+        display: contents;
+    }
+
+    &__item {
+        display: none;
+        flex: 0 0 100%;
+    }
+
+    &__title.active + &__item {
+        display: block;
+    }
+}
