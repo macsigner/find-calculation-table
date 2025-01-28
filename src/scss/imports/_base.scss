@@ -18,6 +18,10 @@ body {
     min-height: 100svh;
     font: 1.6rem/1.6 sans-serif;
     background-color: var(--color-white);
+
+    @media print {
+        font-size: 1rem;
+    }
 }
 
 main {

@@ -32,6 +32,10 @@
     border: 1px solid var(--color-primary);
     transition: border var(--trans-out), color var(--trans-out), background var(--trans-out);
 
+    @media print {
+        display: none;
+    }
+
     &:hover {
         color: var(--color-primary);
         background-color: var(--color-primary-complementary);

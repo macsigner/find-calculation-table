@@ -11,4 +11,18 @@
     --gap: 2rem;
     --trans-in: .2s;
     --trans-out: .6s;
+
+    @media print {
+        --color-white: #FFF;
+        --color-primary: #000;
+        --color-primary-complementary: #FFF;
+        --color-primary-transparent: #{rgba(#000, .1)};
+        --color-accent: #{rgba(#000, .1)};
+        --color-accent-transparent: #{rgba(#000, .2)};
+        --color-accent-alt: #{rgba(#000, .1)};
+        --default-radius: .6rem;
+        --gap: 2rem;
+        --trans-in: .2s;
+        --trans-out: .6s;
+    }
 }
