@@ -1,4 +1,5 @@
 import { delegate } from '../tools.js';
+import AddEntry from './AddEntry.js';
 
 class Editor {
     constructor() {
@@ -20,10 +21,6 @@ class Editor {
 
         document.addEventListener('click', delegate('[data-add-table]', () => {
             this.open();
-
-            this.inner.innerHTML = '';
-
-            this.inner.appendChild(this._wrapperForm.cloneNode(true));
         }));
 
         this.editArea.addEventListener('submit', e => {
@@ -48,12 +45,29 @@ class Editor {
         })
     }
 
-    open() {
+    open(data) {
         this.editArea.classList.add('is-active');
+
+        this.inner.innerHTML = '';
+
+        this.inner.appendChild(this._wrapperForm.cloneNode(true));
+
+        if(data) {
+            this.applyData(data);
+        }
     }
 
     close() {
         this.editArea.classList.remove('is-active');
+    }
+
+    applyData(data) {
+        const title = this.inner.querySelector('[name="title"]');
+        title.value = data.title;
+
+        const addEntryButton = this.inner.querySelector('[data-add-entry]');
+
+        AddEntry.setEntry(addEntryButton, data);
     }
 
     addDataFromForm(form) {

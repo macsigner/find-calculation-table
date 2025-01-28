@@ -2,11 +2,21 @@ import { delegate } from '../tools.js';
 
 class AddEntry {
     constructor() {
-        this.entryTag = document.querySelector('#form-entry').content.cloneNode(true);
-
         document.addEventListener('click', delegate('[data-add-entry]', e => {
-            e.target.parentNode.insertBefore(this.entryTag.cloneNode(true), e.target);
+            AddEntry.addEntry(e.target);
         }));
+    }
+
+    static setEntry(el, data) {
+        console.log(this.entryTag);
+    }
+
+    static addEntry(target) {
+        target.target.parentNode.insertBefore(AddEntry.getEntryForm().cloneNode(true), target);
+    }
+
+    static getEntryForm() {
+        return document.querySelector('#form-entry').content.cloneNode(true);
     }
 }
 

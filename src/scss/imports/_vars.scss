@@ -3,8 +3,10 @@
     --color-white: #FFF4F4;
     --color-primary: #4D0A59;
     --color-primary-complementary: var(--color-white);
+    --color-primary-transparent: #{rgba(#4D0A59, .1)};
     --color-accent: #D4ADEA;
     --color-accent-transparent: #{rgba(#D4ADEA, .2)};
+    --color-accent-alt: #D5D5D5;
     --default-radius: .6rem;
     --gap: 2rem;
     --trans-in: .2s;

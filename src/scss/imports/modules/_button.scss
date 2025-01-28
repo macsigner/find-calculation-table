@@ -43,6 +43,10 @@
         background-color: var(--color-primary-complementary);
     }
 
+    &--outline:hover {
+        background-color: var(--color-primary-transparent);
+    }
+
     &[data-delete-table] {
         @include button-icon(variables.$icon--cross);
     }

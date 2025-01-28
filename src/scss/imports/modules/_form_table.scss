@@ -16,4 +16,11 @@
             margin-top: 2rem;
         }
     }
+
+    &__footer {
+        position: sticky;
+        bottom: 0;
+        padding: 2rem 0 1rem;
+        background-color: var(--color-white);
+    }
 }

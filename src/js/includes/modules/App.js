@@ -3,7 +3,7 @@ import { data } from '../data.js';
 import Editor from './Editor.js';
 import DeleteEntry from './DeleteEntry.js';
 import AddEntry from './AddEntry.js';
-import { updateDownloadButton } from '../tools.js';
+import { delegate, updateDownloadButton } from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
 
@@ -14,9 +14,9 @@ class App {
 
         new DeleteEntry();
         new AddEntry();
-        new Editor();
         new ResetToOriginalData();
         new DeleteTable();
+        this.editor = new Editor();
 
         this.render();
 
@@ -32,6 +32,12 @@ class App {
         document.addEventListener('editorUpdate', () => reset());
         document.addEventListener('resetToOriginalData', () => reset());
         document.addEventListener('deleteTable', () => reset());
+
+        document.addEventListener('click', delegate('[data-edit-table]', e => {
+            const id = Number(e.target.closest('[data-edit-table]').dataset.editTable);
+
+            this.editor.open(this.getData()[id]);
+        }));
     }
 
     render() {
@@ -39,7 +45,7 @@ class App {
 
         const data = this.getData();
 
-        for(let key in data) {
+        for (let key in data) {
             const tableWrapper = document.createElement('div');
 
             this.el.appendChild(tableWrapper);
