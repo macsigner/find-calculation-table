@@ -9,17 +9,20 @@ class Editor {
         this.inner.classList.add('edit-area__inner');
         this.editArea.appendChild(this.inner);
 
+        const closeItem = document.createElement('button');
+        closeItem.classList.add('edit-area__close');
+        closeItem.innerHTML = '<i class="icon icon--cross"></i>';
+        closeItem.dataset.toggleEditArea = '';
+
+        this.editArea.appendChild(closeItem);
+
         document.addEventListener('click', delegate('[data-add-entry]', e => {
             e.target.parentNode.insertBefore(document.createElement('data-entry'), e.target);
         }));
 
-        document.addEventListener('click', e => {
-            if (this.editArea.matches('.is-active') && e.target.closest('.edit-area__inner') === this.inner) {
-                return;
-            }
-
+        document.addEventListener('click', delegate('[data-toggle-edit-area]', e => {
             this.close();
-        });
+        }));
 
         document.addEventListener('click', delegate('[data-add-table]', () => {
             this.open();
@@ -67,7 +70,7 @@ class Editor {
         const data = arr[index];
 
         this.inner.querySelector('[name="title"]').value = data.title;
-        this.inner.querySelector('[name="index"]').value = index ? index : '';
+        this.inner.querySelector('[name="index"]').value = typeof index !== 'undefined' ? index : '';
 
         const addEntryButton = this.inner.querySelector('[data-add-entry]');
 
@@ -84,15 +87,11 @@ class Editor {
 
         const data = this.getDataFromForm(form);
 
-        console.log(data.index);
         if (data.index !== '') {
             localData[data.index] = data;
-
-            console.log(localData);
         } else {
             localData.push(data);
         }
-
 
         localStorage.setItem('tables', JSON.stringify(localData));
 
@@ -120,15 +119,7 @@ class Editor {
             obj[key] = formData.get(key);
         }
 
-        obj.items = Array.from(form.querySelectorAll('form.data-form')).map(subform => {
-            const subformData = new FormData(subform);
-
-            return {
-                name: subformData.get('name'),
-                dependencies: subformData.get('dependencies').trim().split('\n'),
-                formula: subformData.get('formula'),
-            };
-        });
+        obj.items = Array.from(form.querySelectorAll('data-entry')).map(entry => entry.value);
 
         return obj;
     }

@@ -20,9 +20,7 @@
         <button class="button" data-add-table>Tabelle hinzufügen</button>
     </div>
 </main>
-<aside class="edit-area" id="edit-area">
-
-</aside>
+<aside class="edit-area" id="edit-area"></aside>
 
 <template id="data-entry">
     <label>
@@ -48,7 +46,7 @@
             Titel<sup>*</sup>
             <input type="text" name="title" required>
         </label>
-        <input type="number" hidden="hidden" name="index">
+        <input type="number" name="index" style="display: none">
         <div class="form-table__add-data">
             <button class="button" type="button" data-add-entry>Daten hinzufügen</button>
         </div>
