@@ -1,0 +1,21 @@
+/**
+ * data-form bem module
+ */
+
+.data-entry {
+    padding: 1rem 1rem 1rem 4rem;
+    border-radius: var(--default-radius);
+    background-color: var(--color-accent-transparent);
+
+    :where(& + &) {
+        margin-top: 1rem;
+    }
+
+    :where(&:nth-last-child(2):first-child) [data-delete-entry] {
+        display: none;
+    }
+
+    textarea {
+        resize: block;
+    }
+}

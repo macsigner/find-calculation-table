@@ -9,20 +9,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/src/img/favicons/apple-touch-icon.png"/>
     <link rel="manifest" href="/src/img/favicons/site.webmanifest"/>
     <link rel="stylesheet" href="/src/scss/main.scss">
-    <title>Berechnungsabhängikeiten</title>
+    <title>Testing</title>
 </head>
 <body>
 <main>
-    <div id="app" class="app">
-
-    </div>
-    <div>
-        <button class="button" data-add-table>Tabelle hinzufügen</button>
-    </div>
+<data-entry>
+</data-entry>
 </main>
-<aside class="edit-area" id="edit-area">
-
-</aside>
 
 <template id="data-entry">
     <label>
@@ -42,23 +35,6 @@
     </div>
 </template>
 
-<template id="form-table" class="form-table">
-    <form>
-        <label>
-            Titel<sup>*</sup>
-            <input type="text" name="title" required>
-        </label>
-        <div class="form-table__add-data">
-            <button class="button" type="button" data-add-entry>Daten hinzufügen</button>
-        </div>
-        <p><em><sup>*</sup>Pflichtfelder</em></p>
-        <hr>
-        <div class="form-table__footer">
-            <button class="button" type="submit">Speichern</button>
-        </div>
-    </form>
-</template>
-
 <footer class="main-footer">
     <a href="https://www.flaticon.com/free-icons/formula" title="formula icons">Formula icons created by Smashicons -
         Flaticon</a>
@@ -71,5 +47,21 @@
 </footer>
 
 <script type="module" src="/src/js/main.js"></script>
+<script type="module">
+    const el = document.querySelector('data-entry');
+
+    el.value = {
+        name: 'My Name',
+        dependencies: [
+            'a',
+            'b',
+            'c',
+        ],
+        formula: 'a / b + c',
+    };
+
+    console.log(el);
+    console.log(el.value)
+</script>
 </body>
 </html>

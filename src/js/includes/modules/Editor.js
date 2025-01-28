@@ -5,7 +5,6 @@ class Editor {
     constructor() {
         this.editArea = document.querySelector('#edit-area');
         this._wrapperForm = document.querySelector('#form-table').content.cloneNode(true);
-        this._entryForm = document.querySelector('#form-entry').content.cloneNode(true);
         this.editArea.innerHTML = '';
         this.inner = document.createElement('div');
         this.inner.classList.add('edit-area__inner');

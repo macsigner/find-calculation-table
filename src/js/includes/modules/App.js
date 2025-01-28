@@ -8,8 +8,7 @@ import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
 
 class App {
-    constructor() {
-        const el = document.querySelector('#app');
+    constructor(el = document.querySelector('#app')) {
         this.el = el;
 
         new DeleteEntry();

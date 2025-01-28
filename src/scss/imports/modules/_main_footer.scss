@@ -1,13 +1,16 @@
 .main-footer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 4rem var(--gap);
     margin-top: 4rem;
     padding: var(--side-margin);
     background-color: var(--color-accent);
 
     &__options {
         display: flex;
+        flex-wrap: wrap;
         gap: var(--gap);
         justify-content: flex-end;
 
