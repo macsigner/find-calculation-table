@@ -1,3 +1,5 @@
+@use '../imports/mixins/media';
+
 :root {
     --side-margin: 2rem;
     --color-white: #FFF4F4;
@@ -11,6 +13,10 @@
     --gap: 2rem;
     --trans-in: .2s;
     --trans-out: .6s;
+
+    @include media.tablet {
+        --gap: 1rem;
+    }
 
     @media print {
         --color-white: #FFF;

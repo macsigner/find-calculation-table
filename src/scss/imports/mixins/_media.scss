@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+/**
+ * Media query mixins
+ */
+
+@mixin mobile {
+    @media (max-width: #{math.div(1024em, 16)}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{math.div(800em, 16)}) {
+        @content;
+    }
+}

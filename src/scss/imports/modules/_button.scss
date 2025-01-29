@@ -4,6 +4,7 @@
 
 @use '../../../fonts/icons/variables';
 @use '../mixins/icon';
+@use '../mixins/media';
 
 @mixin button-icon($icon) {
     & {
@@ -90,5 +91,29 @@
         @include button-icon(variables.$icon--download) {
             font-size: 1.4em;
         };
+    }
+
+    //
+
+    &[data-delete-table],
+    &[data-edit-table],
+    &[id='download-button'] {
+        @include media.tablet {
+            position: relative;
+            width: 3rem;
+            aspect-ratio: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-indent: -999em;
+
+            &::after {
+                text-indent: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+            }
+        }
     }
 }

@@ -2,6 +2,8 @@
  * tabs bem module
  */
 
+@use '../mixins/media';
+
 .tabs {
     margin-top: 4rem;
     display: flex;
@@ -20,9 +22,15 @@
         border: 1px solid var(--color-primary);
         border-bottom-width: 0;
         color: var(--color-primary);
+        cursor: pointer;
 
         @media print {
             display: none;
+        }
+
+        @include media.tablet {
+            font-size: 1rem;
+            padding: .6rem .4rem;
         }
     }
 

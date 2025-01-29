@@ -1,4 +1,5 @@
 @use 'normalize.css';
+@use 'imports/mixins/media';
 @use 'imports/vars';
 @use '../fonts/icons/variables' as *;
 @use '../fonts/icons/style';
