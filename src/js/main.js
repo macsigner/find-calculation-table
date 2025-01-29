@@ -4,8 +4,9 @@ import './includes/modules/DataEntry.js';
 document.querySelectorAll('#app').forEach(el => new App(el));
 
 let prevClasses;
-document.querySelector('[data-global-settings]')?.addEventListener('input', e => {
-    const formData = new FormData(e.target.form);
+
+const checkForm = () => {
+    const formData = new FormData(document.querySelector('[data-global-settings]'));
     let classes = [];
 
     for (let entry of formData.entries()) {
@@ -18,4 +19,7 @@ document.querySelector('[data-global-settings]')?.addEventListener('input', e =>
 
     classes.forEach(cssClass => document.documentElement.classList.add(cssClass));
     prevClasses = classes;
-});
+}
+document.querySelector('[data-global-settings]')?.addEventListener('input', () => checkForm());
+
+checkForm();

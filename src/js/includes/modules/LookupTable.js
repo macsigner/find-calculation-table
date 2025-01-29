@@ -1,5 +1,5 @@
-import {delegate, updateDownloadButton} from '../tools.js';
-import {data} from '../data.js';
+import { delegate, updateDownloadButton } from '../tools.js';
+import { data } from '../data.js';
 
 updateDownloadButton();
 
@@ -16,7 +16,13 @@ class LookupTable {
                 const possibleResults = items.filter(item => {
                     return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
                 }).map(item => {
-                    return `<div class="result">${item.name}<div class="formula">${item.formula}</div></div>`;
+                    let unmetDependency = item.dependencies.filter(dep => {
+                        return dep !== dCol && dep !== dRow;
+                    });
+
+                    unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
+
+                    return `<div class="result">${item.name.trim()}${unmetDependency}<div class="formula">${item.formula}</div></div>`;
                 }).join('');
 
 
@@ -37,13 +43,31 @@ class LookupTable {
             `;
         }
 
+        const shortList = dependencies.map(dependency => {
+            const dependants = items.filter(item => item.dependencies.includes(dependency) && item.name !== dependency);
+
+            const dependantsHtml = dependants.map(dep => {
+                return `
+                    <span class="dependency-list__sub-description">${dep.dependencies.filter(dep => dep !== dependency).join(', ')}</span>
+                    <span class="dependency-list__sub-description">${dep.name}</span>
+                    <span class="dependency-list__sub-description">${dep.formula} = ${dep.name}</span>`;
+            }).join('')
+
+            return `
+                    <dt class="dependency-list__title" style="--dep-length: ${dependants.length}">${dependency}</dt>
+                    <dd class="dependency-list__description">${dependantsHtml}</dd>
+            `;
+        }).join('');
+
+
         let table = `
             <h1 class="tabs__title">${title}</h1>
             <div class="tabs__item">
-                <table style="--cols: ${dependencies.length + 1}">
+                <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
                     <tr><th>${headerButtons ? headerButtons : ''}</th>${header}</tr>
                     ${rows}
                 </table>
+                <dl class="dependency-list">${shortList}</dl>
             </div>`;
 
         el.innerHTML = table;

@@ -1,0 +1,9 @@
+/**
+ * dependency-table bem module
+ */
+
+.dependency-table {
+    .layout-list & {
+        display: none;
+    }
+}

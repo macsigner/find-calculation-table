@@ -25,3 +25,7 @@
 .result .formula:empty {
     display: none;
 }
+
+.result:has(.unmet) {
+    background-color: rgba(orange, .5);
+}
