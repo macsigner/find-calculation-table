@@ -1,4 +1,5 @@
 @use 'mixins/media';
+@use '../../fonts/icons/variables';
 
 *,
 ::before,
@@ -96,7 +97,8 @@ th {
     background-color: rgba(green, .7);
 }
 
-input,
+[type='text'],
+[type='number'],
 textarea {
     display: block;
     width: 100%;
@@ -104,6 +106,36 @@ textarea {
     padding: 1rem 1rem .8rem;
     border-radius: var(--default-radius);
     margin-bottom: 2rem;
+}
+
+[type='checkbox'] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+label:has([type='checkbox'])::before,
+label:has([type='radio'])::before {
+    font-family: variables.$icomoon-font-family;
+    content: variables.$icon--checkbox-unchecked;
+    display: inline-block;
+    margin-right: .3em;
+    vertical-align: middle;
+    font-size: 1.2em;
+}
+
+label:has([type='radio'])::before {
+    content: variables.$icon--radio-unchecked;
+}
+
+label:has([type='checkbox']:checked)::before {
+    content: variables.$icon--checkbox-checked;
+}
+
+label:has([type='radio']:checked)::before {
+    content: variables.$icon--radio-checked;
 }
 
 label input {

@@ -1,0 +1,26 @@
+/**
+ * main-header bem module
+ */
+
+.main-header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: end;
+    padding: .6rem var(--side-margin);
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    border-bottom: 2px solid var(--color-primary);
+
+    @media print {
+        display: none;
+    }
+
+    label {
+        font-size: inherit;
+        margin-left: 1rem;
+    }
+}

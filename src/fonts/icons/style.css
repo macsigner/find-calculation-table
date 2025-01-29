@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icomoon';
   src:
-    url('fonts/icomoon.ttf?7revbh') format('truetype'),
-    url('fonts/icomoon.woff?7revbh') format('woff'),
-    url('fonts/icomoon.svg?7revbh#icomoon') format('svg');
+    url('fonts/icomoon.ttf?7u888m') format('truetype'),
+    url('fonts/icomoon.woff?7u888m') format('woff'),
+    url('fonts/icomoon.svg?7u888m#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -65,4 +65,46 @@
 }
 .icon--table:before {
   content: "\ea70";
+}
+.icon--radio-unchecked:before {
+  content: "\e901";
+}
+.icon--radio-button:before {
+  content: "\e901";
+}
+.icon--circle:before {
+  content: "\e901";
+}
+.icon--radio-checked:before {
+  content: "\e902";
+}
+.icon--radio-button1:before {
+  content: "\e902";
+}
+.icon--checkbox-checked:before {
+  content: "\e903";
+}
+.icon--checkbox:before {
+  content: "\e903";
+}
+.icon--tick:before {
+  content: "\e903";
+}
+.icon--checked:before {
+  content: "\e903";
+}
+.icon--selected:before {
+  content: "\e903";
+}
+.icon--checkbox-unchecked:before {
+  content: "\e904";
+}
+.icon--checkbox1:before {
+  content: "\e904";
+}
+.icon--unchecked:before {
+  content: "\e904";
+}
+.icon--square:before {
+  content: "\e904";
 }

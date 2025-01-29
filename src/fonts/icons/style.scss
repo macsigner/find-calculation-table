@@ -3,9 +3,9 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?7revbh') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?7revbh') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?7revbh##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?7u888m') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?7u888m') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?7u888m##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -94,6 +94,76 @@
 .icon--table {
   &:before {
     content: $icon--table; 
+  }
+}
+.icon--radio-unchecked {
+  &:before {
+    content: $icon--radio-unchecked; 
+  }
+}
+.icon--radio-button {
+  &:before {
+    content: $icon--radio-button; 
+  }
+}
+.icon--circle {
+  &:before {
+    content: $icon--circle; 
+  }
+}
+.icon--radio-checked {
+  &:before {
+    content: $icon--radio-checked; 
+  }
+}
+.icon--radio-button1 {
+  &:before {
+    content: $icon--radio-button1; 
+  }
+}
+.icon--checkbox-checked {
+  &:before {
+    content: $icon--checkbox-checked; 
+  }
+}
+.icon--checkbox {
+  &:before {
+    content: $icon--checkbox; 
+  }
+}
+.icon--tick {
+  &:before {
+    content: $icon--tick; 
+  }
+}
+.icon--checked {
+  &:before {
+    content: $icon--checked; 
+  }
+}
+.icon--selected {
+  &:before {
+    content: $icon--selected; 
+  }
+}
+.icon--checkbox-unchecked {
+  &:before {
+    content: $icon--checkbox-unchecked; 
+  }
+}
+.icon--checkbox1 {
+  &:before {
+    content: $icon--checkbox1; 
+  }
+}
+.icon--unchecked {
+  &:before {
+    content: $icon--unchecked; 
+  }
+}
+.icon--square {
+  &:before {
+    content: $icon--square; 
   }
 }
 
