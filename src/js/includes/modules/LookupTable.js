@@ -17,8 +17,9 @@ class LookupTable {
         let table = `
             <h1 class="tabs__title">${title}</h1>
             <div class="tabs__item">
+                ${headerButtons ? headerButtons : ''}
                 <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
-                    <tr><th>${headerButtons ? headerButtons : ''}</th>${header}</tr>
+                    <tr><th></th>${header}</tr>
                     ${rows}
                 </table>
                 <dl class="dependency-list">${shortList}</dl>
