@@ -5,7 +5,7 @@
 .dependency-list {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-gap: var(--gap);
+    grid-gap: 1rem var(--gap);
     page-break-before: avoid;
 
     .layout-table & {
