@@ -15,7 +15,7 @@ class LookupTable {
         const shortList = this.#generateShortList(dependencies, items);
 
         let table = `
-            <h1 class="tabs__title">${title}</h1>
+            <h1 class="tabs__title" data-tab-id="${id}">${title}</h1>
             <div class="tabs__item">
                 ${headerButtons ? headerButtons : ''}
                 <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
@@ -52,8 +52,6 @@ class LookupTable {
                         return dep !== dCol && dep !== dRow;
                     });
 
-                    unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
-
                     return {
                         name: item.name.trim(),
                         formula: item.formula,
@@ -77,27 +75,18 @@ class LookupTable {
             }
         });
 
-        console.log(table);
+        return table.map((row) => {
+            const cells = row.cells.map((cell) => {
+                const possibleResults = cell.possibleResults.map(result => {
+                    const unmetDependency = result.unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${result.unmetDependency.join(', ')})</em>` : '';
 
-        return dependencies.map((dRow, keyRow) => {
-            const cells = dependencies.map((dCol, keyCol) => {
-                const possibleResults = items.filter(item => {
-                    return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
-                }).map(item => {
-                    let unmetDependency = item.dependencies.filter(dep => {
-                        return dep !== dCol && dep !== dRow;
-                    });
-
-                    unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
-
-                    return `<div class="result">${item.name.trim()}${unmetDependency}<div class="formula">${item.formula}</div></div>`;
+                    return `<div class="result">${result.name}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
                 }).join('');
 
-
-                return `<td data-col="${keyCol}" data-row="${keyRow}">${possibleResults}</td>`;
+                return `<td data-col="${cell.col}" data-row="${cell.row}">${possibleResults}</td>`;
             }).join('');
 
-            return `<tr><th data-row="${keyRow}">${dRow}</th>${cells}</tr>`;
+            return `<tr><th data-row="${row.header.row}">${row.header.name}</th>${cells}</tr>`;
         });
     }
 

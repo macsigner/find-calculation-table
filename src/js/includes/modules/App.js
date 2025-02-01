@@ -6,6 +6,8 @@ import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
 
 class App {
+    #currentTab;
+
     constructor(el = document.querySelector('#app')) {
         this.el = el;
         this.tabs = document.createElement('div');
@@ -40,6 +42,7 @@ class App {
         this.el.addEventListener('click', delegate('.tabs__title', e => {
             const header = e.target.closest('.tabs__title');
             this.el.querySelectorAll('.tabs__title').forEach(el => el.classList.toggle('active', el === header));
+            this.#currentTab = Number(header.dataset.tabId);
         }));
     }
 
@@ -51,11 +54,16 @@ class App {
         for (let key in data) {
             const wrapper = this.renderSingleTable(data[key], {key: Number(key)});
 
-            if(key !== '0') {
+            if (key !== '0' || typeof this.#currentTab === 'number') {
                 continue;
             }
 
             wrapper.querySelector('.tabs__title').classList.add('active');
+        }
+
+        if (this.#currentTab) {
+            const tab = this.el.querySelector(`[data-tab-id="${this.#currentTab}"]`) || this.el.querySelector('[data-tab-id]');
+            tab?.classList.add('active');
         }
 
         const tableWrapper = document.createElement('div');
