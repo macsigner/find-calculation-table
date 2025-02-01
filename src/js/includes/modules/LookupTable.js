@@ -43,7 +43,37 @@ class LookupTable {
     }
 
     #generateRows(dependencies, items) {
-        return dependencies.map((dRow, keyRow) => {
+        let cells =  dependencies.map((dRow, keyRow) => {
+            const tds = dependencies.map((dCol, keyCol) => {
+                const possibleResults = items.filter(item => {
+                    return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
+                }).map(item => {
+                    let unmetDependency = item.dependencies.filter(dep => {
+                        return dep !== dCol && dep !== dRow;
+                    });
+
+                    unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
+
+                    return {
+                        result: item.name.trim(),
+                        unmetDependency,
+                        formula: item.formula
+                    };
+                });
+
+                return {
+                    id: keyCol,
+                    results: possibleResults,
+                }
+            });
+
+            return {
+                tds,
+            }
+        });
+
+        cells =  cells.map((row, rowId) => {
+            console.log(row, rowId)
             const cells = dependencies.map((dCol, keyCol) => {
                 const possibleResults = items.filter(item => {
                     return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
@@ -54,15 +84,25 @@ class LookupTable {
 
                     unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
 
-                    return `<div class="result">${item.name.trim()}${unmetDependency}<div class="formula">${item.formula}</div></div>`;
-                }).join('');
+                    return {
+                        result: item.name.trim(),
+                        unmetDependency,
+                        formula: item.formula
+                    };
+                });
 
+                return {
+                    id: keyCol,
+                    results: possibleResults,
+                }
 
                 return `<td data-col="${keyCol}" data-row="${keyRow}">${possibleResults}</td>`;
             }).join('');
 
             return `<tr><th data-row="${keyRow}">${dRow}</th>${cells}</tr>`;
         });
+
+        return cells;
     }
 
     #generaHeaderButtons(id, title) {
