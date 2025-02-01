@@ -43,6 +43,42 @@ class LookupTable {
     }
 
     #generateRows(dependencies, items) {
+        const table = dependencies.map((dRow, keyRow) => {
+            const cells = dependencies.map((dCol, keyCol) => {
+                const possibleResults = items.filter(item => {
+                    return dRow !== dCol && item.dependencies.includes(dRow) && item.dependencies.includes(dCol);
+                }).map(item => {
+                    let unmetDependency = item.dependencies.filter(dep => {
+                        return dep !== dCol && dep !== dRow;
+                    });
+
+                    unmetDependency = unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${unmetDependency.join(', ')})</em>` : '';
+
+                    return {
+                        name: item.name.trim(),
+                        formula: item.formula,
+                        unmetDependency,
+                    }
+                });
+
+                return {
+                    col: keyCol,
+                    row: keyRow,
+                    possibleResults
+                }
+            });
+
+            return {
+                header: {
+                    row: keyRow,
+                    name: dRow,
+                },
+                cells,
+            }
+        });
+
+        console.log(table);
+
         return dependencies.map((dRow, keyRow) => {
             const cells = dependencies.map((dCol, keyCol) => {
                 const possibleResults = items.filter(item => {
