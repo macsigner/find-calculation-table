@@ -1,6 +1,16 @@
 .result {
+    position: relative;
+    margin: 2px;
+    padding: 2px 10px;
+    background-color: rgba(white, .3);
     hyphens: auto;
+
+    .layout-short-description-on & {
+        display: block;
+        padding: 0;
+    }
 }
+
 .result:hover {
     z-index: 10;
 }

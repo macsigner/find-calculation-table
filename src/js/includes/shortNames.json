@@ -320,19 +320,19 @@
     "shortName": "LG1"
   },
   {
-    "name": "Liquiditätsgrad 2 ",
+    "name": "Liquiditätsgrad 2",
     "shortName": "LG2"
   },
   {
-    "name": "Liquiditätsgrad 3 ",
+    "name": "Liquiditätsgrad 3",
     "shortName": "LG3"
   },
   {
-    "name": "Anlagedeckungsgrad 1 ",
+    "name": "Anlagedeckungsgrad 1",
     "shortName": "AG1"
   },
   {
-    "name": "Anlagedeckungsgrad 2 ",
+    "name": "Anlagedeckungsgrad 2",
     "shortName": "AG2"
   },
   {
@@ -392,7 +392,7 @@
     "shortName": "KI"
   },
   {
-    "name": "Book-to-bill-ratio ",
+    "name": "Book-to-bill-ratio",
     "shortName": "BTBR"
   }
 ]

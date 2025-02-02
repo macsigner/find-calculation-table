@@ -3,7 +3,9 @@
  */
 
 .name-switch {
-    &__alt {
+    position: relative;
+
+    td &__alt {
         display: none;
         aspect-ratio: 1;
         padding: .3rem;
@@ -11,10 +13,25 @@
         letter-spacing: .05em;
         color: white;
         background-color: green;
+        text-align: center;
     }
 
     .layout-short-description-on &__initial {
         display: none;
+        background-color: white;
+        border: 1px solid black;
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transform: translateX(-50%);
+        min-width: min-content;
+        pointer-events: none;
+    }
+
+    .layout-short-description-on &:hover &__initial {
+        display: block;
     }
 
     .layout-short-description-on &__alt {

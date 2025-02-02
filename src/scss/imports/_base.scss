@@ -65,20 +65,20 @@ th {
     hyphens: auto;
     width: calc(100% / (var(--cols) + 1));
     min-width: 0;
+
+    .layout-short-description-on & {
+        width: auto;
+        padding: 2px;
+    }
 }
 
 td {
     background-color: rgba(green, .3);
-}
-td:empty {
-    background-color: lightgray;
+    vertical-align: top;
 }
 
-tr .result {
-    position: relative;
-    margin: 2px;
-    padding: 2px 10px;
-    background-color: rgba(white, .3);
+td:empty {
+    background-color: lightgray;
 }
 
 td,
