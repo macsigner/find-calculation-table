@@ -45,8 +45,6 @@ class ShortNameCollection {
             name,
             shortName: '',
         });
-
-        console.log(name);
     }
 }
 

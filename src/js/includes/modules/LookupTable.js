@@ -2,8 +2,6 @@ import { delegate, shortNames, updateDownloadButton } from '../tools.js';
 
 updateDownloadButton();
 
-let mySet = new Set();
-
 class LookupTable {
     constructor(el, data, id) {
         const items = data.items;
@@ -15,21 +13,24 @@ class LookupTable {
         const headerButtons = this.#generaHeaderButtons(id, title);
         const shortList = this.#generateShortList(dependencies, items);
 
-        mySet = new Set([...mySet, ...data.items.map(it => it.name)]);
+        let legend = new Set([...dependencies, ...items.map(i => i.name)]);
+        console.log(legend);
+        legend = Array.from(legend).sort().map(entry => {
+            return `<li class="legend__item"><span class="legend__term">${shortNames.get(entry)?.shortName}</span> <span class="legend__definition">${entry}</span></li>`;
+        }).join('');
 
-        Array.from(mySet).forEach(entry => {
-            shortNames.add(entry);
-        });
+        console.log(legend)
 
         let table = `
             <h1 class="tabs__title" data-tab-id="${id}">${title}</h1>
             <div class="tabs__item">
                 ${headerButtons ? headerButtons : ''}
+                <div class="legend-container"><h2>Legende</h2><dl class="legend">${legend}</dl></div>
                 <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
                     <tr><th></th>${header}</tr>
                     ${rows}
                 </table>
-                <dl class="dependency-list">${shortList}</dl>
+                <ul class="dependency-list">${shortList}</ul>
             </div>`;
 
         el.innerHTML = table;

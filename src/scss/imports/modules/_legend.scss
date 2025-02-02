@@ -1,0 +1,23 @@
+/**
+ * legend bem module
+ */
+
+.legend {
+    columns: 5 var(--gap);
+
+    &__item {
+        display: inline-block;
+        break-inside: avoid;
+        border-bottom: 1px solid black;
+        width: 100%;
+    }
+
+    &__term,
+    &__definition {
+        display: inline-block;
+    }
+
+    &__term {
+        width: 6em;
+    }
+}
