@@ -3,5 +3,10 @@
  */
 
 .legend-container {
+    display: none;
     margin: 5rem 0 3rem;
+
+    .layout-short-description-on & {
+        display: block;
+    }
 }

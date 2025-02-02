@@ -3,9 +3,9 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?7u888m') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?7u888m') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?7u888m##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?pslb7n') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?pslb7n') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?pslb7n##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,6 +26,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon--list {
+  &:before {
+    content: $icon--list; 
+  }
+}
+.icon--todo {
+  &:before {
+    content: $icon--todo; 
+  }
+}
+.icon--bullet {
+  &:before {
+    content: $icon--bullet; 
+  }
+}
+.icon--menu {
+  &:before {
+    content: $icon--menu; 
+  }
+}
+.icon--options {
+  &:before {
+    content: $icon--options; 
+  }
+}
 .icon--home {
   &:before {
     content: $icon--home; 
