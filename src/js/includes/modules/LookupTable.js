@@ -1,7 +1,8 @@
-import {delegate, updateDownloadButton} from '../tools.js';
-import {data} from '../data.js';
+import { delegate, shortNames, updateDownloadButton } from '../tools.js';
 
 updateDownloadButton();
+
+let mySet = new Set();
 
 class LookupTable {
     constructor(el, data, id) {
@@ -9,10 +10,16 @@ class LookupTable {
         const title = data.title;
         const dependencies = Array.from(new Set(items.flatMap(d => d.dependencies))).sort();
 
-        const header = dependencies.map((dRow, dKey) => `<th data-col="${dKey}">${dRow}</th>`).join('');
+        const header = dependencies.map((dRow, dKey) => `<th data-col="${dKey}">${shortNames.getSwitchMarkup(dRow)}</th>`).join('');
         const rows = this.#generateRows(dependencies, items).join('');
         const headerButtons = this.#generaHeaderButtons(id, title);
         const shortList = this.#generateShortList(dependencies, items);
+
+        mySet = new Set([...mySet, ...data.items.map(it => it.name)]);
+
+        Array.from(mySet).forEach(entry => {
+            shortNames.add(entry);
+        });
 
         let table = `
             <h1 class="tabs__title" data-tab-id="${id}">${title}</h1>
@@ -80,13 +87,13 @@ class LookupTable {
                 const possibleResults = cell.possibleResults.map(result => {
                     const unmetDependency = result.unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${result.unmetDependency.join(', ')})</em>` : '';
 
-                    return `<div class="result">${result.name}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
+                    return `<div class="result">${shortNames.getSwitchMarkup(result.name)}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
                 }).join('');
 
                 return `<td data-col="${cell.col}" data-row="${cell.row}">${possibleResults}</td>`;
             }).join('');
 
-            return `<tr><th data-row="${row.header.row}">${row.header.name}</th>${cells}</tr>`;
+            return `<tr><th data-row="${row.header.row}">${shortNames.getSwitchMarkup(row.header.name)}</th>${cells}</tr>`;
         });
     }
 

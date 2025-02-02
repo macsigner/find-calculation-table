@@ -50,6 +50,7 @@ class App {
         this.tabs.innerHTML = '';
 
         const data = this.getData();
+        const dep = [];
 
         for (let key in data) {
             const wrapper = this.renderSingleTable(data[key], {key: Number(key)});

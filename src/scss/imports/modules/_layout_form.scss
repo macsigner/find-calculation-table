@@ -1,0 +1,14 @@
+/**
+ * layout-form bem module
+ */
+
+.layout-form {
+    display: flex;
+    gap: var(--gap);
+
+    &__option + &__option::before {
+        content: '|';
+        display: inline-block;
+        margin-right: var(--gap);
+    }
+}

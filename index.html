@@ -13,10 +13,17 @@
 </head>
 <body>
 <header class="main-header">
-    <form data-global-settings>
-        Layout:
-        <label><input name="layout" value="table" type="radio" checked>Tabelle</label>
-        <label><input name="layout" value="list" type="radio">Liste</label>
+    <form data-global-settings class="layout-form">
+        <div class="layout-form__option">
+            Abkürzungen:
+            <label><input name="layout-short-description" value="on" type="radio">an</label>
+            <label><input name="layout-short-description" value="off" type="radio" checked>aus</label>
+        </div>
+        <div class="layout-form__option">
+            Layout:
+            <label><input name="layout" value="table" type="radio" checked>Tabelle</label>
+            <label><input name="layout" value="list" type="radio">Liste</label>
+        </div>
     </form>
 </header>
 <main>

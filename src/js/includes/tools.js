@@ -1,3 +1,5 @@
+import ShortNameCollection from './modules/ShortNameCollection.js';
+
 export const delegate = (selector, fn) => {
     return e => {
         if (e.target.closest(selector)) {
@@ -15,3 +17,5 @@ export const updateDownloadButton = () => {
     linkTag.download = `Lookuptabelle (${date}).json`
     linkTag.href = linkUrl;
 };
+
+export const shortNames = new ShortNameCollection();

@@ -1,0 +1,25 @@
+/**
+ * name-switch bem module
+ */
+
+.name-switch {
+    &__alt {
+        display: none;
+        aspect-ratio: 1;
+        padding: .3rem;
+        width: 5rem;
+        letter-spacing: .05em;
+        color: white;
+        background-color: green;
+    }
+
+    .layout-short-description-on &__initial {
+        display: none;
+    }
+
+    .layout-short-description-on &__alt {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
