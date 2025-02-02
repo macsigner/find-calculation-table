@@ -23,10 +23,12 @@ class LookupTable {
             <div class="tabs__item">
                 ${headerButtons ? headerButtons : ''}
                 <div class="legend-container"><h2>Legende</h2><dl class="legend">${legend}</dl></div>
-                <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
-                    <tr><th></th>${header}</tr>
-                    ${rows}
-                </table>
+                <div class="dependency-table-wrapper">
+                    <table class="dependency-table" style="--cols: ${dependencies.length + 1}">
+                        <tr><th></th>${header}</tr>
+                        ${rows}
+                    </table>
+                </div>
                 <ul class="dependency-list">${shortList}</ul>
             </div>`;
 

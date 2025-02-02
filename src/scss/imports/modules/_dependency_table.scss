@@ -3,6 +3,11 @@
  */
 
 .dependency-table {
+    &-wrapper {
+        width: 100%;
+        overflow: auto;
+    }
+
     .layout-list & {
         display: none;
     }

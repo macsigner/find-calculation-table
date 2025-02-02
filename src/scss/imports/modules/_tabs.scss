@@ -58,6 +58,7 @@
         padding-top: .4rem;
         display: none;
         flex: 0 0 100%;
+        max-width: 100%;
 
         @media print {
             border-top: none;
