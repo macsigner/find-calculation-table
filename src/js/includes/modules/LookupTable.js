@@ -32,6 +32,36 @@ class LookupTable {
 
         el.innerHTML = table;
 
+        for (let rowId = 0; rowId < dependencies.length; rowId++) {
+            for (let colId = 0; colId < dependencies.length; colId++) {
+                const cell = el.querySelector(`td[data-row="${rowId}"][data-col="${colId}"]`);
+
+                cell.classList.toggle('not-needed', rowId >= colId);
+
+                if (rowId === dependencies.length - 1) {
+                    const colCells = el.querySelectorAll(`td[data-col="${colId}"]`);
+
+                    if (Array.from(colCells).reduce((a, c) => {
+                        return a && (c.matches('.not-needed') || c.matches(':empty'));
+                    }, true)) {
+                        el.querySelectorAll(`tr [data-col="${colId}"]`).forEach(td => {
+                            td.classList.add('cell-not-needed');
+                        });
+                    }
+                }
+            }
+
+            const rowCells = el.querySelectorAll(`td[data-row="${rowId}"]`);
+
+            console.log(rowCells);
+            if (Array.from(rowCells).reduce((a, c) => {
+                console.log(c);
+                return a && (c.matches('.not-needed') || c.matches(':empty') || c.matches('.not-needed'));
+            }, true)) {
+                el.querySelector(`td[data-row="${rowId}"]`).closest('tr').classList.add('row-not-needed');
+            }
+        }
+
         el.addEventListener('click', delegate('[data-row]', e => {
             const i = e.target.closest('[data-row]').dataset.row;
 

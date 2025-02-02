@@ -1,0 +1,13 @@
+/**
+ * not-needed bem module
+ */
+
+.not-needed,
+.cell-not-needed,
+.row-not-needed,
+.row-not-needed th,
+.row-not-needed td {
+    .layout-hide-redundant-entries-on & {
+        background-color: black !important;
+    }
+}
