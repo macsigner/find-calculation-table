@@ -64,6 +64,10 @@ class LookupTable {
             }
         }
 
+        el.querySelectorAll(`td[data-col]`).forEach(td => {
+            td.classList.toggle('crossing-cell', td.dataset.col === td.dataset.row);
+        });
+
         el.addEventListener('click', delegate('[data-row]', e => {
             const i = e.target.closest('[data-row]').dataset.row;
 

@@ -54,6 +54,7 @@
     }
 
     &__item {
+        container-type: inline-size;
         border-top: 1px solid var(--color-primary);
         padding-top: .4rem;
         display: none;

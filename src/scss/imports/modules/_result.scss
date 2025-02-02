@@ -9,6 +9,11 @@
         display: block;
         padding: 0;
     }
+
+    @media print {
+        border: 1px solid black;
+        margin: 0;
+    }
 }
 
 .result:hover {

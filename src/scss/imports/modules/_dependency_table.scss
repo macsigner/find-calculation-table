@@ -6,6 +6,10 @@
     &-wrapper {
         width: 100%;
         overflow: auto;
+
+        @media print {
+            overflow: visible;
+        }
     }
 
     .layout-list & {

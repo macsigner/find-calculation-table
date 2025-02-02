@@ -5,6 +5,22 @@
 .legend {
     columns: 5 var(--gap);
 
+    @container (max-width: 170rem) {
+        column-count: 4;
+    }
+
+    @container (max-width: 134rem) {
+        column-count: 3;
+    }
+
+    @container (max-width: 60rem) {
+        column-count: 2;
+    }
+
+    @container (max-width: 50rem) {
+        columns: auto;
+    }
+
     &__item {
         display: flex;
         break-inside: avoid;
