@@ -14,12 +14,9 @@ class LookupTable {
         const shortList = this.#generateShortList(dependencies, items);
 
         let legend = new Set([...dependencies, ...items.map(i => i.name)]);
-        console.log(legend);
         legend = Array.from(legend).sort().map(entry => {
             return `<li class="legend__item"><span class="legend__term">${shortNames.get(entry)?.shortName}</span> <span class="legend__definition">${entry}</span></li>`;
         }).join('');
-
-        console.log(legend)
 
         let table = `
             <h1 class="tabs__title" data-tab-id="${id}">${title}</h1>
@@ -112,13 +109,13 @@ class LookupTable {
 
             const dependantsHtml = dependants.map(dep => {
                 return `
-                    <span class="dependency-list__sub-description">${dep.dependencies.filter(dep => dep !== dependency).join(', ')}</span>
-                    <span class="dependency-list__sub-description">${dep.name}</span>
+                    <span class="dependency-list__sub-description">${dep.dependencies.filter(dep => dep !== dependency).map(dep => shortNames.getSwitchMarkup(dep)).join(', ')}</span>
+                    <span class="dependency-list__sub-description">${shortNames.getSwitchMarkup(dep.name)}</span>
                     <span class="dependency-list__sub-description">${dep.formula} = ${dep.name}</span>`;
             }).join('')
 
             return `
-                    <dt class="dependency-list__title" style="--dep-length: ${dependants.length}">${dependency}</dt>
+                    <dt class="dependency-list__title" style="--dep-length: ${dependants.length}">${shortNames.getSwitchMarkup(dependency)}</dt>
                     <dd class="dependency-list__description">${dependantsHtml}</dd>
             `;
         }).join('');
