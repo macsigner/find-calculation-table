@@ -1,6 +1,7 @@
 [
   {
     "title": "Cashflow-Analyse",
+    "index": "0",
     "items": [
       {
         "name": "Cashflow-Marge",
@@ -234,6 +235,7 @@
   },
   {
     "title": "Liquidität",
+    "index": "5",
     "items": [
       {
         "name": "Liquiditätsgrad 1",
@@ -244,7 +246,7 @@
         "formula": "Flüssige Mittel / Kurzfristiges Fremdkapital"
       },
       {
-        "name": "Liquiditätsgrad 2 ",
+        "name": "Liquiditätsgrad 2",
         "dependencies": [
           "Flüssige Mittel + Forderungen",
           "Kurzfristiges Fremdkapital"
@@ -252,7 +254,7 @@
         "formula": "(Flüssige Mittel + Forderungen) / Kurzfristiges Fremdkapital"
       },
       {
-        "name": "Liquiditätsgrad 3 ",
+        "name": "Liquiditätsgrad 3",
         "dependencies": [
           "Umlaufvermögen",
           "Kurzfristiges Fremdkapital"
@@ -263,9 +265,10 @@
   },
   {
     "title": "Anlagedeckung (goldene Bilanzregel)",
+    "index": "6",
     "items": [
       {
-        "name": "Anlagedeckungsgrad 1 ",
+        "name": "Anlagedeckungsgrad 1",
         "dependencies": [
           "Eigenkapital",
           "Anlagevermögen"
@@ -273,7 +276,7 @@
         "formula": "Eigenkapital / Anlagevermögen"
       },
       {
-        "name": "Anlagedeckungsgrad 2 ",
+        "name": "Anlagedeckungsgrad 2",
         "dependencies": [
           "Eigenkap. + langfr. Fremdkap.",
           "Anlagevermögen"
@@ -358,6 +361,7 @@
   },
   {
     "title": "Diverse Kennzahlen",
+    "index": "9",
     "items": [
       {
         "name": "Flächenproduktivität (Umsatz je m2)",
@@ -408,7 +412,7 @@
         "formula": "Abschreibungsaufwand / Produktionsertrag"
       },
       {
-        "name": "Book-to-bill-ratio ",
+        "name": "Book-to-bill-ratio",
         "dependencies": [
           "Auftragseingang (book)",
           "Fakturierter Umsatz (bill)"

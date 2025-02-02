@@ -6,10 +6,11 @@
     columns: 5 var(--gap);
 
     &__item {
-        display: inline-block;
+        display: flex;
         break-inside: avoid;
         padding: .5rem 0 .1rem;
         border-bottom: 1px solid black;
+        gap: 1rem;
         width: 100%;
     }
 
@@ -19,6 +20,6 @@
     }
 
     &__term {
-        min-width: 4em;
+        min-width: 5em;
     }
 }
