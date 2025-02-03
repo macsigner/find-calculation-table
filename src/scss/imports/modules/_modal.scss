@@ -1,0 +1,18 @@
+/**
+ * modal bem module
+ */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    background-color: var(--color-accent-transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__inner {
+        background-color: var(--color-white);
+        max-width: calc(100% - var(--side-margin) * 2);
+    }
+}
