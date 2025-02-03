@@ -55,9 +55,7 @@ class LookupTable {
 
             const rowCells = el.querySelectorAll(`td[data-row="${rowId}"]`);
 
-            console.log(rowCells);
             if (Array.from(rowCells).reduce((a, c) => {
-                console.log(c);
                 return a && (c.matches('.not-needed') || c.matches(':empty') || c.matches('.not-needed'));
             }, true)) {
                 el.querySelector(`td[data-row="${rowId}"]`).closest('tr').classList.add('row-not-needed');

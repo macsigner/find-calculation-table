@@ -5,10 +5,14 @@
 @use '../mixins/media';
 
 .tabs {
-    margin-top: 4rem;
+    margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0 var(--gap);
+
+    @include media.tablet {
+        margin-top: 6rem;
+    }
 
     &__title {
         flex: 1 1 0;

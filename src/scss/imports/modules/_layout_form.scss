@@ -2,13 +2,57 @@
  * layout-form bem module
  */
 
+@use '../mixins/media';
+
 .layout-form {
     display: flex;
     gap: var(--gap);
+
+    @include media.tablet {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background-color: var(--color-white);
+        padding: 5rem var(--side-margin);
+        text-align: right;
+        grid-template-columns: 1fr auto auto;
+        align-content: start;
+    }
+
+    &.active {
+        @include media.tablet {
+            display: grid;
+        }
+    }
+
+    &__option {
+        @include media.tablet {
+            display: contents;
+            margin-left: auto;
+        }
+    }
 
     &__option + &__option::before {
         content: '|';
         display: inline-block;
         margin-right: var(--gap);
+
+        @include media.tablet {
+            content: none;
+        }
+    }
+
+    &__close {
+        display: none;
+        position: absolute;
+        top: .6rem;
+        right: var(--side-margin);
+        font-size: 2rem;
+        color: var(--color-primary);
+
+        @include media.tablet {
+            display: block;
+        }
     }
 }

@@ -1,5 +1,6 @@
 import App from './includes/modules/App.js';
 import './includes/modules/DataEntry.js';
+import {delegate} from './includes/tools.js';
 
 document.querySelectorAll('#app').forEach(el => new App(el));
 
@@ -23,3 +24,7 @@ const checkForm = () => {
 document.querySelector('[data-global-settings]')?.addEventListener('input', () => checkForm());
 
 checkForm();
+
+document.addEventListener('click', delegate('[data-toggle]', e => {
+    document.querySelector(e.target.closest('[data-toggle]').dataset.toggle).classList.toggle('active');
+}));

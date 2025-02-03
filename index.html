@@ -13,7 +13,7 @@
 </head>
 <body>
 <header class="main-header">
-    <form data-global-settings class="layout-form">
+    <form data-global-settings class="layout-form" id="layout-form">
         <div class="layout-form__option">
             Redundante Tabellensätze ausblenden:
             <label><input name="layout-hide-redundant-entries" value="on" type="radio">an</label>
@@ -29,7 +29,9 @@
             <label><input name="layout" value="table" type="radio" checked><i class="icon icon--table"></i> Tabelle</label>
             <label><input name="layout" value="list" type="radio"><i class="icon icon--list"></i> Liste</label>
         </div>
+        <button type="button" class="layout-form__close icon icon--cross" data-toggle="#layout-form"></button>
     </form>
+    <button type="button" class="main-header__menu-toggle" data-toggle="#layout-form"></button>
 </header>
 <main>
     <div id="app" class="app">

@@ -2,6 +2,8 @@
  * main-header bem module
  */
 
+@use '../mixins/media';
+
 .main-header {
     position: fixed;
     display: flex;
@@ -23,5 +25,29 @@
         margin-left: 1rem;
         font-size: inherit;
         cursor: pointer;
+    }
+
+    &__menu-toggle {
+        display: none;
+        position: relative;
+        aspect-ratio: 4 / 2;
+        width: 4rem;
+        border-top: 4px solid var(--color-primary);
+        border-bottom: 4px solid var(--color-primary);
+
+        @include media.tablet {
+            display: block;
+        }
+    }
+
+    &__menu-toggle::after {
+        content: '';
+        display: block;
+        margin: auto 0;
+        position: absolute;
+        inset: 0;
+        height: 4px;
+        width: 100%;
+        background-color: var(--color-primary);
     }
 }
