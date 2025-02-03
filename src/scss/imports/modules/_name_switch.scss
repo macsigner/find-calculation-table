@@ -5,6 +5,10 @@
 .name-switch {
     position: relative;
 
+    &__alt {
+        display: none;
+    }
+
     td &__alt {
         display: none;
         aspect-ratio: 1;
