@@ -6,13 +6,14 @@
     position: fixed;
     inset: 0;
     z-index: 110;
-    background-color: var(--color-accent-transparent);
+    background-color: var(--color-accent-alt-transparent);
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &__inner {
-        background-color: var(--color-white);
-        max-width: calc(100% - var(--side-margin) * 2);
+    &__close {
+        position: absolute;
+        top: var(--side-margin);
+        right: var(--side-margin);
     }
 }

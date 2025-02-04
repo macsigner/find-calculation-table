@@ -117,7 +117,8 @@ class LookupTable {
         return table.map((row) => {
             const cells = row.cells.map((cell) => {
                 const possibleResults = cell.possibleResults.map(result => {
-                    const unmetDependency = result.unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${result.unmetDependency.join(', ')})</em>` : '';
+                    let unmetDependency = result.unmetDependency.map(dep => shortNames.getSwitchMarkup(dep));
+                    unmetDependency = result.unmetDependency.length ? ` <em class="unmet">${unmetDependency.join(', ')}</em>` : '';
 
                     return `<div class="result">${shortNames.getSwitchMarkup(result.name)}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
                 }).join('');

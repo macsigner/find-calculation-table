@@ -6,6 +6,7 @@
     &-wrapper {
         width: 100%;
         overflow: auto;
+        padding: 2rem 0 4rem;
 
         @media print {
             overflow: visible;

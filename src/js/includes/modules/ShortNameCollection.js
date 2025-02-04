@@ -22,7 +22,7 @@ class ShortNameCollection {
         return this.#list.find(item => item.name === name) || null;
     }
 
-    getSwitchMarkup(name) {
+    getSwitchMarkup(name, suffix = '') {
         const obj = this.get(name);
 
         if (!obj) {
@@ -33,7 +33,7 @@ class ShortNameCollection {
             console.log(name);
         }
 
-        return `<span class="name-switch"><span class="name-switch__initial">${name}</span><span class="name-switch__alt">${obj.shortName}</span></span>`
+        return `<span class="name-switch"><span class="name-switch__initial">${name}${suffix}</span><span class="name-switch__alt">${obj.shortName}${suffix}</span></span>`
     }
 
     add(name) {

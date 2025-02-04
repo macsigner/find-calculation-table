@@ -1,0 +1,23 @@
+/**
+ * info-modal bem module
+ */
+
+.info-modal {
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        padding: .4rem 1rem .2rem var(--side-margin);
+        color: var(--color-primary-complementary);
+        background-color: var(--color-primary);
+    }
+
+    &__close {
+        font-size: 2rem;
+    }
+
+    &__content {
+        padding: var(--side-margin);
+        color: var(--color-primary);
+        background-color: var(--color-primary-complementary);
+    }
+}
