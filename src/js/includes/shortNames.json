@@ -20,6 +20,18 @@
     "shortName": "AK"
   },
   {
+    "name": "Aktienrendite",
+    "shortName": "AR"
+  },
+  {
+    "name": "Anlagedeckungsgrad 1",
+    "shortName": "AG1"
+  },
+  {
+    "name": "Anlagedeckungsgrad 2",
+    "shortName": "AG2"
+  },
+  {
     "name": "Anlagevermögen",
     "shortName": "AV"
   },
@@ -36,12 +48,24 @@
     "shortName": "AE-b"
   },
   {
+    "name": "Book-to-bill-ratio",
+    "shortName": "BTBR"
+  },
+  {
     "name": "Bruttogewinn",
     "shortName": "BG"
   },
   {
+    "name": "Bruttogewinnmarge",
+    "shortName": "BGM"
+  },
+  {
     "name": "Buchwert je Aktie",
     "shortName": "BjA"
+  },
+  {
+    "name": "Cash-burn-rate",
+    "shortName": "CBR"
   },
   {
     "name": "Cashdrain",
@@ -56,8 +80,20 @@
     "shortName": "CF + Z"
   },
   {
+    "name": "Cashflow-Marge",
+    "shortName": "CFM"
+  },
+  {
+    "name": "Cashflow/Investitionsverhältnis",
+    "shortName": "CF/IV"
+  },
+  {
     "name": "Deckungsbeitrag",
     "shortName": "DB"
+  },
+  {
+    "name": "Deckungsbeitragsmarge",
+    "shortName": "DBM"
   },
   {
     "name": "Dividende",
@@ -72,16 +108,40 @@
     "shortName": "DjA"
   },
   {
+    "name": "Dividendenausschüttungsquote",
+    "shortName": "DAQ"
+  },
+  {
+    "name": "Dividendenrendite",
+    "shortName": "DR"
+  },
+  {
     "name": "EBIT",
     "shortName": "EBIT"
+  },
+  {
+    "name": "EBIT-Marge",
+    "shortName": "EBITM"
   },
   {
     "name": "EBITDA",
     "shortName": "EBITDA"
   },
   {
+    "name": "EBITDA-Marge",
+    "shortName": "EBITDAM"
+  },
+  {
     "name": "Effektivverschuldung",
     "shortName": "EV"
+  },
+  {
+    "name": "Eigenfinanzierungsgrad (Eigenkapitalquote)",
+    "shortName": "EFG EKQ"
+  },
+  {
+    "name": "Eigenkap.",
+    "shortName": "EK"
   },
   {
     "name": "Eigenkap. + finanzielles Fremdkap.",
@@ -100,12 +160,32 @@
     "shortName": "FU-b"
   },
   {
+    "name": "finanzielles Fremdkap.",
+    "shortName": "fFK"
+  },
+  {
+    "name": "Flächenproduktivität (Umsatz je m2)",
+    "shortName": "FP"
+  },
+  {
     "name": "Flüssige Mittel",
     "shortName": "FM"
   },
   {
     "name": "Flüssige Mittel + Forderungen",
     "shortName": "FM + F"
+  },
+  {
+    "name": "Forderungen",
+    "shortName": "Fn"
+  },
+  {
+    "name": "Free Cashflow",
+    "shortName": "FCF"
+  },
+  {
+    "name": "Fremdfinanzierungsgrad (Fremdkapitalquote)",
+    "shortName": "FFG FKQ"
   },
   {
     "name": "Fremdkapital",
@@ -132,6 +212,14 @@
     "shortName": "GjA"
   },
   {
+    "name": "Gewinnmarge",
+    "shortName": "GM"
+  },
+  {
+    "name": "Gewinnrendite",
+    "shortName": "GR"
+  },
+  {
     "name": "Gewinnreserven",
     "shortName": "GR"
   },
@@ -140,180 +228,48 @@
     "shortName": "GW"
   },
   {
-    "name": "KGV",
-    "shortName": "KGV"
-  },
-  {
-    "name": "Kaufpreis Aktie",
-    "shortName": "KPA"
-  },
-  {
-    "name": "Kurzfristiges Fremdkapital",
-    "shortName": "KFFK"
-  },
-  {
-    "name": "Materialaufwand",
-    "shortName": "MA"
-  },
-  {
-    "name": "Netto-Finanzschulden",
-    "shortName": "NFS"
-  },
-  {
-    "name": "Nettoinvestitionen",
-    "shortName": "NI"
-  },
-  {
-    "name": "Operatives NUV",
-    "shortName": "ONUV"
-  },
-  {
-    "name": "Personalaufwand",
-    "shortName": "PA"
-  },
-  {
-    "name": "Produktionsertrag",
-    "shortName": "PE"
-  },
-  {
-    "name": "Umlaufvermögen",
-    "shortName": "UV"
-  },
-  {
-    "name": "Umsatz",
-    "shortName": "U"
-  },
-  {
-    "name": "Umschlag Forderungen L+L",
-    "shortName": "UF L+L"
-  },
-  {
-    "name": "Umschlag Verbindl. L+L",
-    "shortName": "UV L+L"
-  },
-  {
-    "name": "Verkaufsfläche in m2",
-    "shortName": "VF"
-  },
-  {
-    "name": "Warenaufwand",
-    "shortName": "WA"
-  },
-  {
-    "name": "Zinsen",
-    "shortName": "Z"
-  },
-  {
-    "name": "Ø Forderungen L+L",
-    "shortName": "Ø F L+L"
-  },
-  {
-    "name": "Ø Verbindlichkeiten L+L",
-    "shortName": "Ø V L+L"
-  },
-  {
-    "name": "Ø Warenvorrat",
-    "shortName": "Ø WV"
-  },
-  {
-    "name": "Cashflow-Marge",
-    "shortName": "CFM"
-  },
-  {
-    "name": "Cashflow/Investitionsverhältnis",
-    "shortName": "CF/IV"
-  },
-  {
-    "name": "Free Cashflow",
-    "shortName": "FCF"
-  },
-  {
-    "name": "Verschuldungsfaktor",
-    "shortName": "VF"
-  },
-  {
-    "name": "Tilgungsfaktor",
-    "shortName": "TF"
-  },
-  {
-    "name": "Zinsdeckungsfaktor",
-    "shortName": "ZDF"
-  },
-  {
-    "name": "Cash-burn-rate",
-    "shortName": "CBR"
-  },
-  {
-    "name": "Zahlungsfrist Kunden",
-    "shortName": "ZFK"
-  },
-  {
-    "name": "Lagerumschlag",
-    "shortName": "LU"
-  },
-  {
-    "name": "Umschlag Verbindlichkeiten L+L",
-    "shortName": "UV L+L"
-  },
-  {
-    "name": "Zahlungsfrist Lieferanten",
-    "shortName": "ZFL"
-  },
-  {
-    "name": "Kapitalumschlag",
-    "shortName": "KU"
-  },
-  {
-    "name": "Umschlag des operativen Nettoumlaufvermögens",
-    "shortName": "UoNUV"
-  },
-  {
-    "name": "Gewinnrendite",
-    "shortName": "GR"
-  },
-  {
-    "name": "Dividendenrendite",
-    "shortName": "DR"
-  },
-  {
-    "name": "Aktienrendite",
-    "shortName": "AR"
-  },
-  {
-    "name": "Dividendenausschüttungsquote",
-    "shortName": "DAQ"
-  },
-  {
-    "name": "Kurs/Gewinn-Verhältnis, KGV",
-    "shortName": "KGV"
-  },
-  {
-    "name": "PEG ratio",
-    "shortName": "PEGR"
-  },
-  {
-    "name": "Kurs/Buchwert-Verhältnis",
-    "shortName": "KBV"
-  },
-  {
-    "name": "Fremdfinanzierungsgrad (Fremdkapitalquote)",
-    "shortName": "FFG FKQ"
-  },
-  {
-    "name": "Eigenfinanzierungsgrad (Eigenkapitalquote)",
-    "shortName": "EFG EKQ"
-  },
-  {
-    "name": "Selbstfinanzierungsgrad",
-    "shortName": "SFG"
+    "name": "Intensität des Anlagevermögens",
+    "shortName": "IAV"
   },
   {
     "name": "Intensität des Umlaufvermögens",
     "shortName": "IUV"
   },
   {
-    "name": "Intensität des Anlagevermögens",
-    "shortName": "IAV"
+    "name": "Kapitalintensität",
+    "shortName": "KI"
+  },
+  {
+    "name": "Kapitalumschlag",
+    "shortName": "KU"
+  },
+  {
+    "name": "Kaufpreis Aktie",
+    "shortName": "KPA"
+  },
+  {
+    "name": "KGV",
+    "shortName": "KGV"
+  },
+  {
+    "name": "Kurs/Buchwert-Verhältnis",
+    "shortName": "KBV"
+  },
+  {
+    "name": "Kurs/Gewinn-Verhältnis, KGV",
+    "shortName": "KGV"
+  },
+  {
+    "name": "Kurzfristiges Fremdkapital",
+    "shortName": "KFFK"
+  },
+  {
+    "name": "Lagerumschlag",
+    "shortName": "LU"
+  },
+  {
+    "name": "langfr. Fremdkap.",
+    "shortName": "lFK"
   },
   {
     "name": "Liquiditätsgrad 1",
@@ -328,12 +284,56 @@
     "shortName": "LG3"
   },
   {
-    "name": "Anlagedeckungsgrad 1",
-    "shortName": "AG1"
+    "name": "Materialaufwand",
+    "shortName": "MA"
   },
   {
-    "name": "Anlagedeckungsgrad 2",
-    "shortName": "AG2"
+    "name": "Materialintensität",
+    "shortName": "MI"
+  },
+  {
+    "name": "Mitarbeiterproduktivität (Umsatz je Mitarbeiter)",
+    "shortName": "MAP"
+  },
+  {
+    "name": "Netto-Finanzschulden",
+    "shortName": "NFS"
+  },
+  {
+    "name": "Nettoinvestitionen",
+    "shortName": "NI"
+  },
+  {
+    "name": "Ø Forderungen L+L",
+    "shortName": "Ø F L+L"
+  },
+  {
+    "name": "Ø Verbindlichkeiten L+L",
+    "shortName": "Ø V L+L"
+  },
+  {
+    "name": "Ø Warenvorrat",
+    "shortName": "Ø WV"
+  },
+  {
+    "name": "Operatives NUV",
+    "shortName": "ONUV"
+  },
+  {
+    "name": "PEG ratio",
+    "shortName": "PEGR"
+  },
+  {
+    "name": "Personalaufwand",
+    "shortName": "PA"
+  },
+  {
+    "name": "Personalintensität (Arbeitsintensität)",
+    "shortName": "PI"
+  },
+  {
+    "name": "Produktionsertrag",
+    "shortName": "PE"
   },
   {
     "name": "Rentabilität des Eigenkapitals (ROE)",
@@ -348,51 +348,71 @@
     "shortName": "RIK"
   },
   {
-    "name": "Bruttogewinnmarge",
-    "shortName": "BGM"
-  },
-  {
-    "name": "EBIT-Marge",
-    "shortName": "EBITM"
-  },
-  {
-    "name": "EBITDA-Marge",
-    "shortName": "EBITDAM"
-  },
-  {
-    "name": "Gewinnmarge",
-    "shortName": "GM"
-  },
-  {
-    "name": "Deckungsbeitragsmarge",
-    "shortName": "DBM"
-  },
-  {
-    "name": "Flächenproduktivität (Umsatz je m2)",
-    "shortName": "FP"
-  },
-  {
-    "name": "Mitarbeiterproduktivität (Umsatz je Mitarbeiter)",
-    "shortName": "MAP"
+    "name": "Selbstfinanzierungsgrad",
+    "shortName": "SFG"
   },
   {
     "name": "Stundenproduktivität (Umsatz je produktive Std.)",
     "shortName": "SP"
   },
   {
-    "name": "Materialintensität",
-    "shortName": "MI"
+    "name": "Tilgungsfaktor",
+    "shortName": "TF"
   },
   {
-    "name": "Personalintensität (Arbeitsintensität)",
-    "shortName": "PI"
+    "name": "Umlaufvermögen",
+    "shortName": "UV"
   },
   {
-    "name": "Kapitalintensität",
-    "shortName": "KI"
+    "name": "Umsatz",
+    "shortName": "U"
   },
   {
-    "name": "Book-to-bill-ratio",
-    "shortName": "BTBR"
+    "name": "Umschlag des operativen Nettoumlaufvermögens",
+    "shortName": "UoNUV"
+  },
+  {
+    "name": "Umschlag Forderungen L+L",
+    "shortName": "UF L+L"
+  },
+  {
+    "name": "Umschlag Verbindl. L+L",
+    "shortName": "UV L+L"
+  },
+  {
+    "name": "Umschlag Verbindlichkeiten L+L",
+    "shortName": "UV L+L"
+  },
+  {
+    "name": "Verkaufsfläche in m2",
+    "shortName": "VF"
+  },
+  {
+    "name": "Verschuldungsfaktor",
+    "shortName": "VF"
+  },
+  {
+    "name": "Warenaufwand",
+    "shortName": "WA"
+  },
+  {
+    "name": "Zahlungsfrist Kunden",
+    "shortName": "ZFK"
+  },
+  {
+    "name": "Zahlungsfrist Lieferanten",
+    "shortName": "ZFL"
+  },
+  {
+    "name": "Zins",
+    "shortName": "Z"
+  },
+  {
+    "name": "Zinsdeckungsfaktor",
+    "shortName": "ZDF"
+  },
+  {
+    "name": "Zinsen",
+    "shortName": "Zn"
   }
 ]

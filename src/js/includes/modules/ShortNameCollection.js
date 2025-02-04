@@ -29,22 +29,22 @@ class ShortNameCollection {
             return name;
         }
 
-        if(!obj.shortName) {
-            console.log(name);
-        }
-
         return `<span class="name-switch"><span class="name-switch__initial">${name}${suffix}</span><span class="name-switch__alt">${obj.shortName}${suffix}</span></span>`
     }
 
-    add(name) {
+    add(name, shortName = '') {
         if(this.#list.find(item => item.name === name)) {
             return;
         }
 
         this.#list.push({
             name,
-            shortName: '',
+            shortName,
         });
+    }
+
+    getAll() {
+        return this.#list;
     }
 }
 
