@@ -1,7 +1,7 @@
 import LookupTable from './LookupTable.js';
 import { data } from '../data.js';
 import Editor from './Editor.js';
-import { delegate, updateDownloadButton } from '../tools.js';
+import {delegate, shortNames, updateDownloadButton} from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
 
@@ -27,6 +27,8 @@ class App {
         const reset = () => {
             updateDownloadButton();
             this.render();
+            let l = shortNames.getAll();
+            l.sort((a, b) => a.name.localeCompare(b.name))
         };
 
         document.addEventListener('editorUpdate', () => reset());

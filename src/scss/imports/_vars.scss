@@ -10,10 +10,12 @@
     --color-accent: #D4ADEA;
     --color-accent-transparent: #{rgba(#D4ADEA, .2)};
     --color-accent-alt: #D5D5D5;
+    --color-accent-alt-transparent: #{rgba(#D5D5D5, .8)};
     --default-radius: .6rem;
     --gap: 2rem;
     --trans-in: .2s;
     --trans-out: .6s;
+    --base-distance: 2rem;
 
     @include media.tablet {
         --gap: 1rem;

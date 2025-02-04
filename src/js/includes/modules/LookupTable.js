@@ -8,6 +8,20 @@ class LookupTable {
         const title = data.title;
         const dependencies = Array.from(new Set(items.flatMap(d => d.dependencies))).sort();
 
+        let short = [...dependencies.map(dep => {
+            return {
+                name: dep,
+                shortName: shortNames.get(dep)?.shortName,
+            }
+        }), ...items.map(item => {
+            return {
+                name: item.name,
+                shortName: shortNames.get(item.name)?.shortName,
+            }
+        })];
+
+        short.forEach(entry => shortNames.add(entry.name));
+
         const header = dependencies.map((dRow, dKey) => `<th data-col="${dKey}">${shortNames.getSwitchMarkup(dRow)}</th>`).join('');
         const rows = this.#generateRows(dependencies, items).join('');
         const headerButtons = this.#generaHeaderButtons(id, title);
@@ -117,9 +131,12 @@ class LookupTable {
         return table.map((row) => {
             const cells = row.cells.map((cell) => {
                 const possibleResults = cell.possibleResults.map(result => {
-                    const unmetDependency = result.unmetDependency.length ? `<sup>*</sup> <em class="unmet">(${result.unmetDependency.join(', ')})</em>` : '';
+                    let unmetDependency = result.unmetDependency.map(dep => shortNames.get(dep).name);
+                    let unmetDependencyShort = result.unmetDependency.map(dep => shortNames.get(dep).shortName);
+                    unmetDependency = result.unmetDependency.length ? ` <em class="unmet">[${unmetDependency.join(', ')}]</em>` : '';
+                    unmetDependencyShort = result.unmetDependency.length ? ` <em class="unmet">[${unmetDependencyShort.join(', ')}]</em>` : '';
 
-                    return `<div class="result">${shortNames.getSwitchMarkup(result.name)}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
+                    return `<div class="result">${shortNames.getSwitchMarkup(result.name, unmetDependency, unmetDependencyShort)}<div class="formula">${result.formula}</div></div>`;
                 }).join('');
 
                 return `<td data-col="${cell.col}" data-row="${cell.row}">${possibleResults}</td>`;
@@ -153,6 +170,10 @@ class LookupTable {
                     <dd class="dependency-list__description">${dependantsHtml}</dd>
             `;
         }).join('');
+    }
+
+    #generateDependencyMarkup(dependencies) {
+
     }
 }
 
