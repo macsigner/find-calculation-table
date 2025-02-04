@@ -48,6 +48,7 @@ a {
 }
 
 button {
+    color: inherit;
     cursor: pointer;
     background-color: transparent;
 }
@@ -88,6 +89,10 @@ th {
     &.active-col {
         background-color: rgba(beige, 1);
     }
+}
+
+p {
+    margin-bottom: var(--base-distance);
 }
 
 .active-col.active-row:empty {

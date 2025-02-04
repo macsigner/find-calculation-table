@@ -2,6 +2,6 @@
  * crossing-cell bem module
  */
 
-.crossing-cell {
+html:not(.layout-hide-redundant-entries-on) .crossing-cell {
     background-color: rgba(black, .9) !important;
 }

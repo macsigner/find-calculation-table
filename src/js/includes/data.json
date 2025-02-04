@@ -46,7 +46,7 @@
       {
         "name": "Zinsdeckungsfaktor",
         "dependencies": [
-          "Cashflow + Zinsen",
+          "Cashflow",
           "Zinsen"
         ],
         "formula": "(Cashflow + Zinsen) / Zinsen"
@@ -248,7 +248,8 @@
       {
         "name": "Liquiditätsgrad 2",
         "dependencies": [
-          "Flüssige Mittel + Forderungen",
+          "Flüssige Mittel",
+          "Forderungen",
           "Kurzfristiges Fremdkapital"
         ],
         "formula": "(Flüssige Mittel + Forderungen) / Kurzfristiges Fremdkapital"
@@ -278,7 +279,8 @@
       {
         "name": "Anlagedeckungsgrad 2",
         "dependencies": [
-          "Eigenkap. + langfr. Fremdkap.",
+          "Eigenkap.",
+          "langfr. Fremdkap.",
           "Anlagevermögen"
         ],
         "formula": "(Eigenkap. + langfr. Fremdkap.) / Anlagevermögen"
@@ -287,6 +289,7 @@
   },
   {
     "title": "Kapitalrentabilität",
+    "index": "7",
     "items": [
       {
         "name": "Rentabilität des Eigenkapitals (ROE)",
@@ -307,10 +310,12 @@
       {
         "name": "Rentabilität des investierten Kapitals (ROIC, RONOA, ROCE)",
         "dependencies": [
-          "Gewinn + Zins",
-          "Eigenkap. + finanzielles Fremdkap."
+          "Gewinn",
+          "Zins",
+          "Eigenkapital",
+          "finanzielles Fremdkapital"
         ],
-        "formula": "Gewinn + Zins / (Eigenkap. + finanzielles Fremdkap.)"
+        "formula": "Gewinn + Zins / (Eigenkapital + finanzielles Fremdkapital)"
       }
     ]
   },

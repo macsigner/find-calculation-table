@@ -22,29 +22,29 @@ class ShortNameCollection {
         return this.#list.find(item => item.name === name) || null;
     }
 
-    getSwitchMarkup(name) {
+    getSwitchMarkup(name, suffix = '', suffixShort = '') {
         const obj = this.get(name);
 
         if (!obj) {
             return name;
         }
 
-        if(!obj.shortName) {
-            console.log(name);
-        }
-
-        return `<span class="name-switch"><span class="name-switch__initial">${name}</span><span class="name-switch__alt">${obj.shortName}</span></span>`
+        return `<span class="name-switch"><span class="name-switch__initial">${name}${suffix}</span><span class="name-switch__alt">${obj.shortName}${suffixShort}</span></span>`
     }
 
-    add(name) {
+    add(name, shortName = '') {
         if(this.#list.find(item => item.name === name)) {
             return;
         }
 
         this.#list.push({
             name,
-            shortName: '',
+            shortName,
         });
+    }
+
+    getAll() {
+        return this.#list;
     }
 }
 

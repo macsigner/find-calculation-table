@@ -59,10 +59,11 @@
     &[data-edit-table] {
         @include button-icon(variables.$icon--edit) {
             font-size: 1.2em;
-        };
+        }
     }
 
-    &[data-reset-to-original-data] {
+    &[data-reset-to-original-data],
+    &[data-reset-to-original-data-modal] {
         @include button-icon(variables.$icon--warning);
     }
 
@@ -71,26 +72,26 @@
             margin-top: -.1em;
             margin-left: 1.4rem;
             font-size: 1.4em;
-        };
+        }
     }
 
     &[data-add-table],
     &[data-add-entry] {
         @include button-icon(variables.$icon--plus) {
             margin-top: -.1em;
-        };
+        }
     }
 
     &[data-delete-entry] {
         @include button-icon(variables.$icon--minus) {
             margin-top: -.1em;
-        };
+        }
     }
 
     &[id='download-button'] {
         @include button-icon(variables.$icon--download) {
             font-size: 1.4em;
-        };
+        }
     }
 
     &[data-delete-table],
