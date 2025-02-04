@@ -312,10 +312,10 @@
         "dependencies": [
           "Gewinn",
           "Zins",
-          "Eigenkap.",
-          "finanzielles Fremdkap."
+          "Eigenkapital",
+          "finanzielles Fremdkapital"
         ],
-        "formula": "Gewinn + Zins / (Eigenkap. + finanzielles Fremdkap.)"
+        "formula": "Gewinn + Zins / (Eigenkapital + finanzielles Fremdkapital)"
       }
     ]
   },

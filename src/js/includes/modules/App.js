@@ -29,7 +29,6 @@ class App {
             this.render();
             let l = shortNames.getAll();
             l.sort((a, b) => a.name.localeCompare(b.name))
-            console.log(JSON.stringify(l));
         };
 
         document.addEventListener('editorUpdate', () => reset());

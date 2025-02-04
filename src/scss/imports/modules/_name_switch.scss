@@ -7,6 +7,9 @@
 
     &__alt {
         display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     td &__alt {
@@ -22,6 +25,10 @@
         @media print {
             aspect-ratio: auto;
             width: auto;
+        }
+
+        .unmet {
+            display: block;
         }
     }
 
@@ -45,7 +52,5 @@
 
     .layout-short-description-on &__alt {
         display: inline-flex;
-        justify-content: center;
-        align-items: center;
     }
 }

@@ -131,10 +131,12 @@ class LookupTable {
         return table.map((row) => {
             const cells = row.cells.map((cell) => {
                 const possibleResults = cell.possibleResults.map(result => {
-                    let unmetDependency = result.unmetDependency.map(dep => shortNames.get(dep));
-                    unmetDependency = result.unmetDependency.length ? ` <em class="unmet">${unmetDependency.join(', ')}</em>` : '';
+                    let unmetDependency = result.unmetDependency.map(dep => shortNames.get(dep).name);
+                    let unmetDependencyShort = result.unmetDependency.map(dep => shortNames.get(dep).shortName);
+                    unmetDependency = result.unmetDependency.length ? ` <em class="unmet">[${unmetDependency.join(', ')}]</em>` : '';
+                    unmetDependencyShort = result.unmetDependency.length ? ` <em class="unmet">[${unmetDependencyShort.join(', ')}]</em>` : '';
 
-                    return `<div class="result">${shortNames.getSwitchMarkup(result.name, unmetDependency)}${unmetDependency}<div class="formula">${result.formula}</div></div>`;
+                    return `<div class="result">${shortNames.getSwitchMarkup(result.name, unmetDependency, unmetDependencyShort)}<div class="formula">${result.formula}</div></div>`;
                 }).join('');
 
                 return `<td data-col="${cell.col}" data-row="${cell.row}">${possibleResults}</td>`;
@@ -168,6 +170,10 @@ class LookupTable {
                     <dd class="dependency-list__description">${dependantsHtml}</dd>
             `;
         }).join('');
+    }
+
+    #generateDependencyMarkup(dependencies) {
+
     }
 }
 
