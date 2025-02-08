@@ -1,4 +1,5 @@
 import { delegate } from '../tools.js';
+import {storage} from './Storage.js';
 
 class Editor {
     constructor() {
@@ -83,7 +84,7 @@ class Editor {
     }
 
     addDataFromForm(form) {
-        let localData = JSON.parse(localStorage.getItem('tables'));
+        let localData = storage.get('tables');
 
         const data = this.getDataFromForm(form);
 
@@ -93,7 +94,7 @@ class Editor {
             localData.push(data);
         }
 
-        localStorage.setItem('tables', JSON.stringify(localData));
+        storage.set('tables', localData);
 
         this.editArea.dispatchEvent(new CustomEvent('editorUpdate', {
             bubbles: true,
