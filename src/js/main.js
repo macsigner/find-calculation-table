@@ -1,8 +1,8 @@
-import App from './includes/modules/App.js';
+import DefaultApp from './includes/modules/DefaultApp.js';
 import './includes/modules/DataEntry.js';
 import {delegate} from './includes/tools.js';
 
-document.querySelectorAll('#app').forEach(el => new App(el));
+document.querySelectorAll('#default-app').forEach(el => new DefaultApp(el));
 
 let prevClasses;
 

@@ -4,11 +4,14 @@ import Editor from './Editor.js';
 import {delegate, shortNames, updateDownloadButton} from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
+import { createApp } from 'vue';
+import App from '../../../App.vue';
 
-class App {
+class DefaultApp {
     #currentTab;
 
     constructor(el = document.querySelector('#app')) {
+        this.vueApp = document.createElement('div');
         this.el = el;
         this.tabs = document.createElement('div');
         this.tabs.classList.add('tabs');
@@ -46,6 +49,9 @@ class App {
             this.el.querySelectorAll('.tabs__title').forEach(el => el.classList.toggle('active', el === header));
             this.#currentTab = Number(header.dataset.tabId);
         }));
+
+        this.el.parentNode.appendChild(this.vueApp);
+        createApp(App).mount(this.vueApp);
     }
 
     render() {
@@ -106,4 +112,4 @@ class App {
     }
 }
 
-export default App;
+export default DefaultApp;
