@@ -1,6 +1,6 @@
 import { delegate } from '../tools.js';
-import { data } from '../data.js';
 import InfoModal from './InfoModal.js';
+import {storage} from './Storage.js';
 
 class ResetToOriginalData {
     #modal;
@@ -26,7 +26,7 @@ class ResetToOriginalData {
         }));
 
         document.addEventListener('click', delegate('[data-reset-to-original-data]', () => {
-            localStorage.setItem('tables', JSON.stringify(data));
+            storage.reset();
             document.dispatchEvent(new CustomEvent('resetToOriginalData'));
             this.#modal.close();
             this.#modal = null;

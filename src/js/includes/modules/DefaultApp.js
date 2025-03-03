@@ -1,11 +1,11 @@
 import LookupTable from './LookupTable.js';
-import { data } from '../data.js';
 import Editor from './Editor.js';
 import {delegate, shortNames, updateDownloadButton} from '../tools.js';
 import ResetToOriginalData from './ResetToOriginalData.js';
 import DeleteTable from './DeleteTable.js';
 import { createApp } from 'vue';
 import App from '../../../App.vue';
+import {storage} from './Storage.js';
 
 class DefaultApp {
     #currentTab;
@@ -108,7 +108,7 @@ class DefaultApp {
      * @returns {null|Array}
      */
     getData() {
-        return JSON.parse(localStorage.getItem('tables')) || data;
+        return storage.get('tables');
     }
 }
 
