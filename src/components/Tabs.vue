@@ -6,7 +6,7 @@ defineProps({
         type: Array,
         required: true,
     }
-})
+});
 
 const setActiveTab = (tab, tabs) => {
     tabs.forEach(single => {
