@@ -1,44 +1,23 @@
 <script setup>
 import Tabs from './components/Tabs.vue';
-import { reactive, ref } from 'vue';
+import {ref} from 'vue';
 
-const tabItems = [
-    {
-        id: Symbol(),
-        title: {
-            key: Symbol(),
-            value: 'Tab one',
-        },
-        content: 'Tab content one',
-        active: true,
-    },
-    {
-        id: Symbol(),
-        title: {
-            key: Symbol(),
-            value: 'Tab two',
-        },
-        content: 'Tab content two',
-        active: false,
-    },
-    {
-        id: Symbol(),
-        title: {
-            key: Symbol(),
-            value: 'Tab three',
-        },
-        content: 'Tab content three',
-        active: false,
-    },
-].map(item => {
-    Object.keys(item).forEach(key => {
-        item[key] = typeof item[key] === 'string' ? ref(item[key]) : item[key];
-    });
+import {storage} from './js/includes/modules//Storage.js';
 
-    return item;
+const tabItems = storage.get('tables').map((item, index) => {
+    return {
+        id: Symbol(),
+        title: {
+            key: Symbol(),
+            value: item.title,
+        },
+        content: item.items,
+        active: index === 0,
+    }
 });
 
-const tabs = ref(tabItems)</script>
+const tabs = ref(tabItems)
+</script>
 <template>
     <Tabs :tabs="tabs"></Tabs>
 </template>

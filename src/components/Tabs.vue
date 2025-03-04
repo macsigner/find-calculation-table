@@ -1,5 +1,6 @@
 <script setup>
 import EditEntry from '@/components/EditEntry.vue';
+import DependencyTable from '@/components/DependencyTable.vue';
 
 defineProps({
     tabs: {
@@ -7,6 +8,29 @@ defineProps({
         required: true,
     }
 });
+
+const createDependencyTable = (content) => {
+    console.log(content);
+
+    let dependencies = content.flatMap(item => item.dependencies).sort();
+    dependencies = Array.from(new Set(dependencies));
+
+    let rows = dependencies.map(row => {
+        const cols = dependencies.map(col => {
+            if(col === row) {
+                return null;
+            }
+
+            const match = content.filter(item => item.dependencies.includes(row) && item.dependencies.includes(col));
+
+            return match.length === 0 ? null : match;
+        });
+
+        return cols;
+    });
+
+    return rows;
+}
 
 const setActiveTab = (tab, tabs) => {
     tabs.forEach(single => {
@@ -21,7 +45,7 @@ const setActiveTab = (tab, tabs) => {
                 <EditEntry :entry="tab.title">{{ tab.title.value }}</EditEntry>
             </dt>
             <dd class="tabs__item">
-                {{ tab.content }}
+                <DependencyTable :rows="createDependencyTable(tab.content)"></DependencyTable>
             </dd>
         </template>
     </dl>
