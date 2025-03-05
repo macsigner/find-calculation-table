@@ -10,20 +10,30 @@ defineProps({
 });
 
 const createDependencyTable = (content) => {
-    console.log(content);
-
     let dependencies = content.flatMap(item => item.dependencies).sort();
     dependencies = Array.from(new Set(dependencies));
+    const crossing = {
+        type: 'crossing',
+    };
 
     let rows = dependencies.map(row => {
         const cols = dependencies.map(col => {
-            if(col === row) {
-                return null;
+            if (col === row) {
+                return crossing;
             }
 
             const match = content.filter(item => item.dependencies.includes(row) && item.dependencies.includes(col));
 
-            return match.length === 0 ? null : match;
+            return match.length === 0 ? null : {...match, type: 'dependencies'};
+        });
+
+        return cols;
+    });
+
+    rows = rows.map(row => {
+        const relevantCells = row.slice;
+        const cols = row.map(col => {
+            return col;
         });
 
         return cols;

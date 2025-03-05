@@ -12,7 +12,7 @@ defineProps({
 <template>
     <table>
         <tr v-for="(row, rowKey) in rows">
-            <td v-for="(col, colKey) in row" :class="{
+            <td v-for="(col, colKey) in row.cols" :class="{
                 'crossing-cell': rowKey === colKey,
             }">
                 <template v-if="col">
