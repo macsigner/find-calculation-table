@@ -2,7 +2,7 @@
 import Tabs from './components/Tabs.vue';
 import {ref} from 'vue';
 
-import {storage} from './js/includes/modules//Storage.js';
+import {storage} from './js/includes/modules/Storage.js';
 
 const tabItems = storage.get('tables').map((item, index) => {
     return {

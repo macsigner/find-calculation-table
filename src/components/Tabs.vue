@@ -24,7 +24,7 @@ const createDependencyTable = (content) => {
 
             const match = content.filter(item => item.dependencies.includes(row) && item.dependencies.includes(col));
 
-            return match.length === 0 ? null : {...match, type: 'dependencies'};
+            return match.length === 0 ? null : {results: [...match], type: 'dependencies'};
         });
 
         return cols;

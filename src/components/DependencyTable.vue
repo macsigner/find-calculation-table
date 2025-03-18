@@ -1,6 +1,7 @@
 <script setup>
 
 import { shortNames } from '../js/includes/tools.js';
+import Results from '@/components/Results.vue';
 
 defineProps({
     rows: {
@@ -12,18 +13,10 @@ defineProps({
 <template>
     <table>
         <tr v-for="(row, rowKey) in rows">
-            <td v-for="(col, colKey) in row.cols" :class="{
+            <td v-for="(col, colKey) in row" :class="{
                 'crossing-cell': rowKey === colKey,
             }">
-                <template v-if="col">
-                    <div v-for="data in col" class="result">
-                        <div class="name-switch">
-                            <div class="name-switch__initial">{{ data.name }}</div>
-                            <div class="name-switch__alt">{{ shortNames.get(data.name).shortName }}</div>
-                        </div>
-                        <div class="formula">{{ data.formula }}</div>
-                    </div>
-                </template>
+                    <Results :results="col.results" v-if="col?.type === 'dependencies'"></Results>
             </td>
         </tr>
     </table>
